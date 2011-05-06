@@ -19,10 +19,10 @@
 - (id)init {
     if ((self = [super initWithColor:ccc4(255, 255, 255, 255)])) {
         CCLOG(@"GameLayer initialized, DRAW SUM SHEPS !");
-        [self addChild:[HexNode nodeWithRadius:40.0f position:CGPointMake(200, 200)]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:CGPointMake(235, 265)]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:CGPointMake(270, 200)]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:CGPointMake(235, 135)]];
+        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,0)]];
+        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,1)]];
+        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(1,0)]];
+        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(1,-1)]];
     }
     return self;
 }

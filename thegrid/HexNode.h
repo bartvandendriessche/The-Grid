@@ -8,6 +8,17 @@
 
 #import "cocos2d.h"
 
+struct HexPoint {
+    int x;
+    int y;
+};
+typedef struct HexPoint HexPoint;
+
+CG_INLINE HexPoint
+HexPointMake(int x, int y){
+    HexPoint p; p.x = x; p.y = y; return p;
+}
+
 @interface HexNode : CCNode {
     float _radius;
     float _height;
@@ -15,7 +26,7 @@
     float _halfWidth;
     float _width;
     
-    CGPoint _position;
+    HexPoint _position;
 }
 
 @property (nonatomic, assign) float radius;
@@ -24,9 +35,9 @@
 @property (nonatomic, assign) float halfWidth;
 @property (nonatomic, assign) float width;
 
-@property (nonatomic, assign) CGPoint position;
+@property (nonatomic, assign) HexPoint pos;
 
-+ (id)nodeWithRadius:(float)radius position:(CGPoint)position;
-- (id)initWithRadius:(float)radius position:(CGPoint)position;
++ (id)nodeWithRadius:(float)radius position:(HexPoint)position;
+- (id)initWithRadius:(float)radius position:(HexPoint)position;
 
 @end

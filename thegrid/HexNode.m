@@ -8,7 +8,6 @@
 
 #import "HexNode.h"
 
-
 @implementation HexNode
 
 @synthesize radius = _radius;
@@ -16,13 +15,13 @@
 @synthesize rowHeight = _rowHeight;
 @synthesize halfWidth = _halfWidth;
 @synthesize width = _width;
-@synthesize position = _position;
+@synthesize pos = _position;
 
-+ (id)nodeWithRadius:(float)radius position:(CGPoint)position{
++ (id)nodeWithRadius:(float)radius position:(HexPoint)position{
     return [[[HexNode alloc] initWithRadius:radius position:position] autorelease];
 }
 
-- (id)initWithRadius:(float)radius position:(CGPoint)position{
+- (id)initWithRadius:(float)radius position:(HexPoint)position{
     if ((self = [super init])) {
         self.radius = radius;
         self.height = 2 * _radius;
@@ -30,19 +29,20 @@
         self.halfWidth = (float)sqrt((_radius * _radius) - ((_radius / 2) * (_radius / 2)));
         self.width = 2 * _halfWidth;
         
-        self.position = position;
+        self.pos = position;
     }
     return self;
 }
 
-- (CGPoint)tileOrigin:(CGPoint)tileCoordinate {
-    int xToInt = (int)tileCoordinate.x;
-    return ccp((tileCoordinate.x * _width) + ((xToInt % 2 == 1) ? _halfWidth : 0), //Y % 2 == 1 is asking 'Is Y odd?'
-               tileCoordinate.y * _rowHeight);
+- (CGPoint)origin:(HexPoint)hexPosition {
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    CGPoint p = ccp(winSize.width/2 + ((hexPosition.x * _width) + ((hexPosition.y % 2 == 0) ? 0 : _halfWidth)), //y % 2 == 0 is asking 'Is y even?'
+                    winSize.height/2 + (hexPosition.y * _rowHeight));
+    return p;
 }
 
-- (CGPoint)tileCenter:(CGPoint) tileCoordinate {
-    return ccpAdd(tileCoordinate, ccp(_halfWidth, _halfWidth));
+- (CGPoint)tileCenter:(CGPoint) hexPosition {
+    return ccpAdd(hexPosition, ccp(_halfWidth, _halfWidth));
 }
 
 - (void)drawHexAt:(CGPoint)center {
@@ -61,8 +61,7 @@
     glEnable(GL_LINE_SMOOTH);
                 
     glColor4ub(0, 0, 0, 255);
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    [self drawHexAt:_position];
+    [self drawHexAt:[self origin:_position]];
 }
 
 @end
