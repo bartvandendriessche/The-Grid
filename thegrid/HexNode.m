@@ -17,11 +17,13 @@
 @synthesize width = _width;
 @synthesize pos = _position;
 
-+ (id)nodeWithRadius:(float)radius position:(HexPoint)position{
-    return [[[HexNode alloc] initWithRadius:radius position:position] autorelease];
+@synthesize sprite = _sprite;
+
++ (id)nodeWithRadius:(float)radius position:(HexPoint)position sprite:(CCSprite *)sprite{
+    return [[[HexNode alloc] initWithRadius:radius position:position sprite:sprite] autorelease];
 }
 
-- (id)initWithRadius:(float)radius position:(HexPoint)position{
+- (id)initWithRadius:(float)radius position:(HexPoint)position sprite:(CCSprite *)sprite{
     if ((self = [super init])) {
         self.radius = radius;
         self.height = 2 * _radius;
@@ -30,19 +32,17 @@
         self.width = 2 * _halfWidth;
         
         self.pos = position;
+        self.sprite = sprite;
+        _sprite.position = [self origin];
     }
     return self;
 }
 
-- (CGPoint)origin:(HexPoint)hexPosition {
+- (CGPoint)origin {
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    CGPoint p = ccp(winSize.width/2 + ((hexPosition.x * _width) + ((hexPosition.y % 2 == 0) ? 0 : _halfWidth)), //y % 2 == 0 is asking 'Is y even?'
-                    winSize.height/2 + (hexPosition.y * _rowHeight));
+    CGPoint p = ccp(winSize.width/2 + ((_position.x * _width) + ((_position.y % 2 == 0) ? 0 : _halfWidth)), //y % 2 == 0 is asking 'Is y even?'
+                    winSize.height/2 + (_position.y * _rowHeight));
     return p;
-}
-
-- (CGPoint)tileCenter:(CGPoint) hexPosition {
-    return ccpAdd(hexPosition, ccp(_halfWidth, _halfWidth));
 }
 
 - (void)drawHexAt:(CGPoint)center {
@@ -61,7 +61,12 @@
     glEnable(GL_LINE_SMOOTH);
                 
     glColor4ub(0, 0, 0, 255);
-    [self drawHexAt:[self origin:_position]];
+    [self drawHexAt:[self origin]];
+}
+
+- (void)dealloc {
+    [_sprite release], _sprite = nil;
+    [super dealloc];
 }
 
 @end
