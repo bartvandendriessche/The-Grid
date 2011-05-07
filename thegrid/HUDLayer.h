@@ -18,7 +18,7 @@
 + (id)layer;
 
 - (id)init;
-- (void)showOptionCircleOnPosition:(CGPoint) forBuild:(BOOL)build;
+- (void)showOptionCircleOnPosition:(CGPoint)position forBuild:(BOOL)build;
 - (void)hideOptionCircle;
 
 @end
