@@ -37,11 +37,14 @@
         // load option circle
         _optionCircle = [CCSprite spriteWithFile:@"OptionWheel.png"];
         _optionCircle.position = ccp(880, 384);
+        _optionCircle.scale = 0.5f;
+        _optionCircle.visible = FALSE;
         [self addChild:_optionCircle];
         
         // add icons to the option circle
         for (int i = 0; i < [_buildIcons count]; i++) {
             HUDIcon *currentIcon = (HUDIcon*)[_buildIcons objectAtIndex:i];
+            currentIcon.visible = FALSE;
             currentIcon.position = ccp(cos(CC_DEGREES_TO_RADIANS(i * 45)) * 80 + _optionCircle.contentSize.width / 2, 
                                        sin(CC_DEGREES_TO_RADIANS(i * 45)) * 80 + _optionCircle.contentSize.height / 2);
             [_optionCircle addChild:currentIcon];
@@ -50,12 +53,29 @@
     return self;
 }
 
-- (void)showOptionCircleOnPosition:(CGPoint) forBuild:(BOOL)build {
+- (void)showIcons {
+    for (int i = 0; i < [_buildIcons count]; i++) {
+        HUDIcon *currentIcon = (HUDIcon*)[_buildIcons objectAtIndex:i];
+        currentIcon.visible = TRUE;
+    }
+}
+
+- (void)showOptionCircleOnPosition:(CGPoint)position forBuild:(BOOL)build {
     if (_optionCircle.visible) {
-        [self hideOptionCircle];
+        //[self hideOptionCircle];
+        return;
     }
     
+    _optionCircle.position = position;
+    _optionCircle.visible = TRUE;
     
+    id sequence = [CCSequence actions:
+                   [CCScaleTo actionWithDuration:0.5f scale:1.1f],
+                   [CCScaleTo actionWithDuration:0.01f scale:1.0f],
+                   //[CCCallFuncN actionWithTarget:self selector:@selector(showIcons:)],
+                   nil];
+    
+    [_optionCircle runAction:sequence];
 }
     
 - (void)hideOptionCircle {

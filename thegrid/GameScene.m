@@ -289,7 +289,8 @@
     for (HexNode* h in _hexNodes) {
         if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {
             [h randomizeColor];
-            CCLOG(@"Just touched the hex at %d, %d", h.pos.x, h.pos.y);
+            [_hudLayer showOptionCircleOnPosition:h.position forBuild:YES];
+            
             if ([h isKindOfClass:[TileEnergy class]]) { 
                 ((TileEnergy*)h).energy = [[energyTypes objectAtIndex:(arc4random() % [energyTypes count])] energyType];
                 CCLOG(@"Just added %@ to this tile", [((TileEnergy*)h).energy class]);
