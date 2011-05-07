@@ -24,6 +24,8 @@
     NSMutableArray* _hexNodes;
     NSMutableArray* _cityTiles;
     NSMutableArray* _energyTiles;
+    
+    NSMutableArray* _spareEnergyTiles;
 }
 
 + (id)scene;

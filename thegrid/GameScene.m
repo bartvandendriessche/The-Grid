@@ -44,6 +44,29 @@
     [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(1,-1) spriteName:@"city_tile_background.png"]];
 }
 
+- (NSMutableArray*)createSpareEnergyTiles {
+    NSMutableArray *a = [[NSMutableArray alloc] init];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, 2)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, 2)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, -3)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, -3)]];
+    
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(2, 2)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, 2)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(2, -2)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, -2)]];
+    
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-3, 1)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-3, 0)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-3, -1)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-3, -2)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(3, 1)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(3, 0)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(3, -1)]];
+    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(3, -2)]];
+    return [a autorelease];
+}
+
 - (void)createEnergyTiles {
     [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, 0)]];
     [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, 1)]];
@@ -84,6 +107,7 @@
         
         _hudLayer = [HUDLayer layer];
         [self addChild:_hudLayer];
+        _spareEnergyTiles = [[self createSpareEnergyTiles] retain];
     }
     return self;
 }
@@ -193,6 +217,15 @@
                                      nil]]];
 }
 
+- (void)addNewEnergyTileFromSpare {
+    if (!_spareEnergyTiles || ![_spareEnergyTiles count]) {
+        return;
+    }
+    TileEnergy *tile = [_spareEnergyTiles objectAtIndex:arc4random() % [_spareEnergyTiles count]];
+    [self addEnergyTile:tile];
+    [_spareEnergyTiles removeObject:tile];
+}
+
 #pragma mark -
 #pragma mark Add game elements
 
@@ -260,6 +293,19 @@
             }
         }
     }
+    
+    BOOL tileAvailable = NO;
+    for (TileEnergy *tile in _energyTiles) {
+        if (tile.energy) {
+            continue;
+        }
+        tileAvailable = YES;
+    }
+    
+    if (!tileAvailable) {
+        [self addNewEnergyTileFromSpare];
+    }
+    
     return YES;
 }
 
@@ -276,6 +322,7 @@
     [_environment release], _environment = nil;
     [_cityTiles release], _cityTiles = nil;
     [_energyTiles release], _energyTiles = nil;
+    [_spareEnergyTiles release], _spareEnergyTiles = nil;
     [_hexNodes release], _hexNodes = nil;
     [super dealloc];
 }
