@@ -44,7 +44,7 @@
         // add icons to the option circle
         for (int i = 0; i < [_buildIcons count]; i++) {
             HUDIcon *currentIcon = (HUDIcon*)[_buildIcons objectAtIndex:i];
-            currentIcon.visible = FALSE;
+            currentIcon.scale = 0.0f;
             currentIcon.position = ccp(cos(CC_DEGREES_TO_RADIANS(i * 45)) * 80 + _optionCircle.contentSize.width / 2, 
                                        sin(CC_DEGREES_TO_RADIANS(i * 45)) * 80 + _optionCircle.contentSize.height / 2);
             [_optionCircle addChild:currentIcon];
@@ -56,29 +56,34 @@
 - (void)showIcons {
     for (int i = 0; i < [_buildIcons count]; i++) {
         HUDIcon *currentIcon = (HUDIcon*)[_buildIcons objectAtIndex:i];
-        currentIcon.visible = TRUE;
+        [currentIcon runAction:[CCSequence actions: 
+                                [CCScaleTo actionWithDuration:0.0f scale:0.0f],
+                                [CCDelayTime actionWithDuration:(0.015f * i)],
+                                [CCScaleTo actionWithDuration:0.2f scale:1.1f],
+                                [CCScaleTo actionWithDuration:0.05f scale:1.0f],
+                                nil]];
+    }
+}
+
+- (void)hideIcons {
+    for (int i = 0; i < [_buildIcons count]; i++) {
+        HUDIcon *currentIcon = (HUDIcon*)[_buildIcons objectAtIndex:i];
+        [currentIcon runAction:[CCScaleTo actionWithDuration:0.0f scale:0.0f]];
     }
 }
 
 - (void)showOptionCircleOnPosition:(CGPoint)position forBuild:(BOOL)build {
-    if (_optionCircle.visible) {
-        //[self hideOptionCircle];
-        return;
-    }
+    CCSequence *sequence = [CCSequence actions:
+                            [CCCallFunc actionWithTarget:self selector:@selector(hideIcons)],
+                            [CCScaleTo actionWithDuration:0.0f scale:0.0f],
+                            [CCMoveTo actionWithDuration:0.0f position:position],
+                            [CCScaleTo actionWithDuration:0.2f scale:1.1f],
+                            [CCCallFuncN actionWithTarget:self selector:@selector(showIcons)],
+                            [CCScaleTo actionWithDuration:0.05f scale:1.0f],
+                            nil];
     
-    _optionCircle.position = position;
     _optionCircle.visible = TRUE;
-    
-    id sequence = [CCSequence actions:
-                   [CCScaleTo actionWithDuration:0.5f scale:1.1f],
-                   [CCScaleTo actionWithDuration:0.01f scale:1.0f],
-                   //[CCCallFuncN actionWithTarget:self selector:@selector(showIcons:)],
-                   nil];
-    
     [_optionCircle runAction:sequence];
-}
-    
-- (void)hideOptionCircle {
     
 }
 

@@ -125,7 +125,7 @@
 #pragma mark - 
 #pragma mark Gameloop
 - (void)update:(ccTime)dt {
-    CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
+    //CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
 }
 
 - (int)requiredEnergy {
@@ -289,7 +289,7 @@
     for (HexNode* h in _hexNodes) {
         if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {
             [h randomizeColor];
-            [_hudLayer showOptionCircleOnPosition:h.position forBuild:YES];
+            [_hudLayer showOptionCircleOnPosition:h.sprite.position forBuild:YES];
             
             if ([h isKindOfClass:[TileEnergy class]]) { 
                 ((TileEnergy*)h).energy = [[energyTypes objectAtIndex:(arc4random() % [energyTypes count])] energyType];
