@@ -13,7 +13,13 @@
 #import "TileEnergy.h"
 #import "SimpleAudioEngine.h"
 
+#define DURATION_DAY 5
+#define DURATION_NIGHT 5
+
 @implementation GameScene
+
+#pragma mark -
+#pragma mark Initialization / Setup
 
 + (id)scene {
     return [[[GameScene alloc] init] autorelease];
@@ -35,9 +41,57 @@
         _gameLayer = [GameLayer layer];
         [self addChild:_gameLayer z:1];
         [self createCity];
+        
+        [self scheduleUpdate];
+        
+        _dayNightCycleLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 128)];
+        [self addChild:_dayNightCycleLayer z:2];
     }
     return self;
 }
+
+#pragma mark -
+#pragma mark Sound
+- (void)playNightTheme {
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid  Night fall.wav" loop:YES];
+}
+
+- (void)playDayTheme {
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid main theme day.wav" loop:YES];
+}
+
+#pragma mark - 
+#pragma mark Gameloop
+- (void)update:(ccTime)dt {
+    CCLOG(@"Hey Bitzes");
+}
+
+- (CCFiniteTimeAction*)dayCycle {
+    return [CCSequence actions:
+            [CCFadeTo actionWithDuration:10 opacity:0],
+            [CCCallFunc actionWithTarget:self selector:@selector(playDayTheme)],
+            [CCDelayTime actionWithDuration:DURATION_DAY],
+            nil];
+}
+
+- (CCFiniteTimeAction*)nightCycle {
+    return [CCSequence actions:
+            [CCFadeTo actionWithDuration:10 opacity:128],
+            [CCCallFunc actionWithTarget:self selector:@selector(playNightTheme)],
+            [CCDelayTime actionWithDuration:DURATION_NIGHT],
+            nil];
+}
+
+- (void)startDayNightCycle {
+    [_dayNightCycleLayer runAction:[CCRepeatForever actionWithAction:
+                                    [CCSequence actions:
+                                     [self dayCycle],
+                                     [self nightCycle],
+                                     nil]]];
+}
+
+#pragma mark -
+#pragma mark Add game elements
 
 - (void)addHexNode:(HexNode*)hexNode {
     [_gameLayer addChild:hexNode];
@@ -68,7 +122,11 @@
 - (void)onEnter {
     [super onEnter];
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid  Night fall.wav" loop:YES];
+    [self runAction:[CCSequence actions:
+                     [CCCallFunc actionWithTarget:self selector:@selector(playNightTheme)],
+                     [CCDelayTime actionWithDuration:DURATION_NIGHT],
+                     [CCCallFunc actionWithTarget:self selector:@selector(startDayNightCycle)],
+                     nil]];
 }
 
 - (void)onExit {

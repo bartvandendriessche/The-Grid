@@ -15,6 +15,7 @@
 
 @interface GameScene : CCScene<CCTargetedTouchDelegate> {
     GameLayer *_gameLayer;
+    CCLayer *_dayNightCycleLayer;
     
     NSMutableArray* _hexNodes;
     NSMutableArray* _cityTiles;
