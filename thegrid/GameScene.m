@@ -91,7 +91,7 @@
         _gameLayer = [GameLayer layer];
         
         // load background
-        CCSprite *background = [CCSprite spriteWithFile:@"background.png"];
+        CCSprite *background = [CCSprite spriteWithFile:@"Background.png"];
         background.position = ccp(512, 384);
         [_gameLayer addChild:background];
         
@@ -115,11 +115,11 @@
 #pragma mark -
 #pragma mark Sound
 - (void)playNightTheme {
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid  Night fall.wav" loop:YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"nightfall.m4a" loop:YES];
 }
 
 - (void)playDayTheme {
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid main theme day.wav" loop:YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"daytime.m4a" loop:YES];
 }
 
 #pragma mark - 
@@ -263,6 +263,9 @@
                      [CCDelayTime actionWithDuration:DURATION_NIGHT],
                      [CCCallFunc actionWithTarget:self selector:@selector(startDayNightCycle)],
                      nil]];
+    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"The Grid  Night fall.wav"];
+    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"The Grid main theme day.wav"];
+
 }
 
 - (void)onExit {
