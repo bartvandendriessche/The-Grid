@@ -20,7 +20,7 @@
 @synthesize sprite = _sprite;
 
 + (id)nodeWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName {
-    return [[[HexNode alloc] initWithRadius:radius position:position spriteName:spriteName] autorelease];
+    return [[[self alloc] initWithRadius:radius position:position spriteName:spriteName] autorelease];
 }
 
 - (id)initWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName {

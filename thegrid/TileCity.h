@@ -8,9 +8,14 @@
 
 #import "HexNode.h"
 
+@class Environment;
 
 @interface TileCity : HexNode {
-    
+    int _population;
 }
+
+@property (nonatomic, assign) int population;
+
+- (int)requiredEnergy:(Environment*)environment;
 
 @end

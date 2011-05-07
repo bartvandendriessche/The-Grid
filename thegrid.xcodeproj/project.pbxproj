@@ -213,6 +213,7 @@
 		CCFF00B01375976000EBBC2C /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
 		CCFF00BE13759FDC00EBBC2C /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
 		CCFF00BF13759FDD00EBBC2C /* Environment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Environment.m; sourceTree = "<group>"; };
+		CCFF00C21375B52100EBBC2C /* EnergyTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyTypes.h; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCFFFEB81374941800EBBC2C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -560,6 +561,7 @@
 				CCFF00B01375976000EBBC2C /* Geo.m */,
 				CCFF00BE13759FDC00EBBC2C /* Environment.h */,
 				CCFF00BF13759FDD00EBBC2C /* Environment.m */,
+				CCFF00C21375B52100EBBC2C /* EnergyTypes.h */,
 			);
 			name = Grid;
 			sourceTree = "<group>";

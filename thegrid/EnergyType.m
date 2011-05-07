@@ -13,6 +13,8 @@
 @synthesize price = _price;
 @synthesize baseYield = _baseYield;
 
+@synthesize sprite = _sprite;
+
 + (id)energyType {
     return [[[self alloc] init] autorelease];
 }

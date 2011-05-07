@@ -24,7 +24,8 @@
 }
 
 - (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
-    return _baseYield;
+    int yield = _baseYield + (_baseYield * (10-environment.cloudiness) / 10);
+    return (environment.dayTime) ?  yield : yield / 5;
 }
 
 @end
