@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>TexturePacker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>thegrid.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>AB7BC7DF13758589008685EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CCFFFEB11374941800EBBC2C</key>
 		<dict>
 			<key>primary</key>
