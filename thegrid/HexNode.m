@@ -64,14 +64,6 @@
 }
 
 - (void)drawHexAt:(CGPoint)origin {
-    int x = origin.x;
-    int y = origin.y;
-//    ccDrawLine(ccp(x-_halfWidth,y-_radius/2), ccp(x-_halfWidth,y+_radius/2));
-//    ccDrawLine(ccp(x-_halfWidth,y+_radius/2), ccp(x,y+_radius));
-//    ccDrawLine(ccp(x,y+_radius), ccp(x+_halfWidth,y+_radius/2));
-//    ccDrawLine(ccp(x+_halfWidth,y+_radius/2),ccp(x+_halfWidth,y-_radius/2));
-//    ccDrawLine(ccp(x+_halfWidth,y-_radius/2),ccp(x,y-_radius));
-//    ccDrawLine(ccp(x,y-_radius),ccp(x-_halfWidth,y-_radius/2));
     ccDrawLine(_leftBottom, _left);
     ccDrawLine(_left, _leftTop);
     ccDrawLine(_leftTop, _rightTop);
@@ -88,8 +80,6 @@
 
 - (BOOL)isTouchForMe:(CGPoint)touch {
     CGPoint origin = [self origin];
-    int x = origin.x;
-    int y = origin.y;
     if (![self sameSide:touch p2:origin a:_leftBottom b:_left]) {
         return NO;
     }

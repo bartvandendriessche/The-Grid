@@ -8,12 +8,24 @@
 
 #import "cocos2d.h"
 
+@class GameLayer;
+@class HexNode;
+@class TileCity;
+@class TileEnergy;
 
-@interface GameScene : CCScene {
+@interface GameScene : CCScene<CCTargetedTouchDelegate> {
+    GameLayer *_gameLayer;
     
+    NSMutableArray* _hexNodes;
+    NSMutableArray* _cityTiles;
+    NSMutableArray* _energyTiles;
 }
 
 + (id)scene;
 - (id)init;
+
+- (void)addHexNode:(HexNode*)hexNode;
+- (void)addCityTile:(TileCity*)city;
+- (void)addEnergyTile:(TileEnergy*)energy;
 
 @end

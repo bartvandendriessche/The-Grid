@@ -11,12 +11,9 @@
 @class HexNode;
 
 @interface GameLayer : CCLayerColor {
-    NSMutableArray* _hexNodes;
 }
 
 + (id)layer;
 - (id)init;
-
-- (void)addHexNode:(HexNode*)hexNode;
 
 @end
