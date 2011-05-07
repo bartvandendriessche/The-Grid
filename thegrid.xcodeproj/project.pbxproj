@@ -25,6 +25,15 @@
 		CCFF005A1375721700EBBC2C /* TileEnergy.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00591375721700EBBC2C /* TileEnergy.m */; };
 		CCFF007B13757B9F00EBBC2C /* The Grid main theme day.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCFF007A13757B9F00EBBC2C /* The Grid main theme day.wav */; };
 		CCFF007D13757C4F00EBBC2C /* The grid  Night fall.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCFF007C13757C4F00EBBC2C /* The grid  Night fall.wav */; };
+		CCFF00981375950B00EBBC2C /* EnergyType.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00971375950B00EBBC2C /* EnergyType.m */; };
+		CCFF009C1375970000EBBC2C /* Coal.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF009B1375970000EBBC2C /* Coal.m */; };
+		CCFF009F1375970900EBBC2C /* Oil.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF009E1375970900EBBC2C /* Oil.m */; };
+		CCFF00A21375971D00EBBC2C /* Gas.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00A11375971D00EBBC2C /* Gas.m */; };
+		CCFF00A51375972700EBBC2C /* Nuclear.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00A41375972700EBBC2C /* Nuclear.m */; };
+		CCFF00A81375973E00EBBC2C /* Wind.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00A71375973E00EBBC2C /* Wind.m */; };
+		CCFF00AB1375974E00EBBC2C /* Water.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00AA1375974E00EBBC2C /* Water.m */; };
+		CCFF00AE1375975800EBBC2C /* Sun.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00AD1375975700EBBC2C /* Sun.m */; };
+		CCFF00B11375976100EBBC2C /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00B01375976000EBBC2C /* Geo.m */; };
 		CCFFFEB71374941800EBBC2C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB61374941800EBBC2C /* QuartzCore.framework */; };
 		CCFFFEB91374941800EBBC2C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB81374941800EBBC2C /* OpenGLES.framework */; };
 		CCFFFEBB1374941800EBBC2C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEBA1374941800EBBC2C /* OpenAL.framework */; };
@@ -169,6 +178,24 @@
 		CCFF00591375721700EBBC2C /* TileEnergy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileEnergy.m; sourceTree = "<group>"; };
 		CCFF007A13757B9F00EBBC2C /* The Grid main theme day.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "The Grid main theme day.wav"; path = "Art/Sound/The Grid main theme day.wav"; sourceTree = "<group>"; };
 		CCFF007C13757C4F00EBBC2C /* The grid  Night fall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "The grid  Night fall.wav"; path = "Art/Sound/The grid  Night fall.wav"; sourceTree = "<group>"; };
+		CCFF00961375950B00EBBC2C /* EnergyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyType.h; sourceTree = "<group>"; };
+		CCFF00971375950B00EBBC2C /* EnergyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnergyType.m; sourceTree = "<group>"; };
+		CCFF009A1375970000EBBC2C /* Coal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coal.h; sourceTree = "<group>"; };
+		CCFF009B1375970000EBBC2C /* Coal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coal.m; sourceTree = "<group>"; };
+		CCFF009D1375970900EBBC2C /* Oil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Oil.h; sourceTree = "<group>"; };
+		CCFF009E1375970900EBBC2C /* Oil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Oil.m; sourceTree = "<group>"; };
+		CCFF00A01375971D00EBBC2C /* Gas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gas.h; sourceTree = "<group>"; };
+		CCFF00A11375971D00EBBC2C /* Gas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gas.m; sourceTree = "<group>"; };
+		CCFF00A31375972700EBBC2C /* Nuclear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nuclear.h; sourceTree = "<group>"; };
+		CCFF00A41375972700EBBC2C /* Nuclear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Nuclear.m; sourceTree = "<group>"; };
+		CCFF00A61375973D00EBBC2C /* Wind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wind.h; sourceTree = "<group>"; };
+		CCFF00A71375973E00EBBC2C /* Wind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wind.m; sourceTree = "<group>"; };
+		CCFF00A91375974E00EBBC2C /* Water.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Water.h; sourceTree = "<group>"; };
+		CCFF00AA1375974E00EBBC2C /* Water.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Water.m; sourceTree = "<group>"; };
+		CCFF00AC1375975700EBBC2C /* Sun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sun.h; sourceTree = "<group>"; };
+		CCFF00AD1375975700EBBC2C /* Sun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sun.m; sourceTree = "<group>"; };
+		CCFF00AF1375976000EBBC2C /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geo.h; sourceTree = "<group>"; };
+		CCFF00B01375976000EBBC2C /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCFFFEB81374941800EBBC2C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -468,6 +495,24 @@
 				CCFF00561375720900EBBC2C /* TileCity.m */,
 				CCFF00581375721600EBBC2C /* TileEnergy.h */,
 				CCFF00591375721700EBBC2C /* TileEnergy.m */,
+				CCFF00961375950B00EBBC2C /* EnergyType.h */,
+				CCFF00971375950B00EBBC2C /* EnergyType.m */,
+				CCFF009A1375970000EBBC2C /* Coal.h */,
+				CCFF009B1375970000EBBC2C /* Coal.m */,
+				CCFF009D1375970900EBBC2C /* Oil.h */,
+				CCFF009E1375970900EBBC2C /* Oil.m */,
+				CCFF00A01375971D00EBBC2C /* Gas.h */,
+				CCFF00A11375971D00EBBC2C /* Gas.m */,
+				CCFF00A31375972700EBBC2C /* Nuclear.h */,
+				CCFF00A41375972700EBBC2C /* Nuclear.m */,
+				CCFF00A61375973D00EBBC2C /* Wind.h */,
+				CCFF00A71375973E00EBBC2C /* Wind.m */,
+				CCFF00A91375974E00EBBC2C /* Water.h */,
+				CCFF00AA1375974E00EBBC2C /* Water.m */,
+				CCFF00AC1375975700EBBC2C /* Sun.h */,
+				CCFF00AD1375975700EBBC2C /* Sun.m */,
+				CCFF00AF1375976000EBBC2C /* Geo.h */,
+				CCFF00B01375976000EBBC2C /* Geo.m */,
 			);
 			name = Grid;
 			sourceTree = "<group>";
@@ -1006,6 +1051,15 @@
 				CCFF005A1375721700EBBC2C /* TileEnergy.m in Sources */,
 				AB0A2AFC13756FED0072B21C /* HUDLayer.m in Sources */,
 				AB0A2B091375747A0072B21C /* HUDIcon.m in Sources */,
+				CCFF00981375950B00EBBC2C /* EnergyType.m in Sources */,
+				CCFF009C1375970000EBBC2C /* Coal.m in Sources */,
+				CCFF009F1375970900EBBC2C /* Oil.m in Sources */,
+				CCFF00A21375971D00EBBC2C /* Gas.m in Sources */,
+				CCFF00A51375972700EBBC2C /* Nuclear.m in Sources */,
+				CCFF00A81375973E00EBBC2C /* Wind.m in Sources */,
+				CCFF00AB1375974E00EBBC2C /* Water.m in Sources */,
+				CCFF00AE1375975800EBBC2C /* Sun.m in Sources */,
+				CCFF00B11375976100EBBC2C /* Geo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

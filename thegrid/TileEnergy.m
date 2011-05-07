@@ -7,7 +7,7 @@
 //
 
 #import "TileEnergy.h"
-
+#import "EnergyType.h"
 
 @implementation TileEnergy
 
@@ -20,6 +20,8 @@
 @synthesize scoreSun = _scoreSun;
 @synthesize scoreGeo = _scoreGeo;
 @synthesize scoreWater = _scoreWater;
+
+@synthesize energy = _energy;
 
 + (id)tileWithRandomPropertiesAt:(HexPoint)point {
     return [[[TileEnergy alloc] initWithRandomPropertiesAt:point]autorelease];
@@ -38,6 +40,16 @@
         self.scoreWater = arc4random() % 11;
     }
     return self;
+}
+
+- (int)yield {
+    if (!_energy) {
+        return 0;
+    }
+    
+    [_energy deplete:self];
+    
+    return [_energy yield:self];
 }
 
 @end
