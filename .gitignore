@@ -8,3 +8,7 @@
 **/xcuserdata/*
 **/**/xcuserdata/*
 **/**/**/xcuserdata
+**/**/**/*.xcuserdatad
+**/**/xcuserdata/*
+thegrid.xcodeproj/project.xcworkspace/xcuserdata/**/*
+thegrid.xcodeproj/project.xcworkspace/xcuserdata/bart.xcuserdatad/*
