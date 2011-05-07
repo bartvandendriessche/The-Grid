@@ -8,6 +8,7 @@
 
 #import "GameLayer.h"
 #import "HexNode.h"
+#import "TileCity.h"
 
 
 @implementation GameLayer
@@ -21,14 +22,14 @@
         CCLOG(@"GameLayer initialized, DRAW SUM SHEPS !");
         
         // make a center hex with 6 hexes around it        
-//        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,0) sprite:nil]];
-//        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,1) sprite:nil]];
-//        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(1,0) sprite:nil]];
-//        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,1) sprite:nil]];
-//        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,-1) sprite:nil]];
-//        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,0) sprite:nil]];
-//        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,-1) sprite:nil]];
-        [self makeGrid:2];
+        [self addHexNode:[TileCity nodeWithRadius:40.0f position:HexPointMake(0,0) sprite:nil]];
+        [self addHexNode:[TileCity nodeWithRadius:40.0f position:HexPointMake(0,1) sprite:nil]];
+        [self addHexNode:[TileCity nodeWithRadius:40.0f position:HexPointMake(1,0) sprite:nil]];
+        [self addHexNode:[TileCity nodeWithRadius:40.0f position:HexPointMake(1,-1) sprite:nil]];
+        [self addHexNode:[TileCity nodeWithRadius:40.0f position:HexPointMake(0,-1) sprite:nil]];
+        [self addHexNode:[TileCity nodeWithRadius:40.0f position:HexPointMake(-1,0) sprite:nil]];
+        [self addHexNode:[TileCity nodeWithRadius:40.0f position:HexPointMake(-1,-1) sprite:nil]];
+        //[self makeGrid:2];
     }
     return self;
 }
