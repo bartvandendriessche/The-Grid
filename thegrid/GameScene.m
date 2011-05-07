@@ -42,6 +42,21 @@
     [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(1,-1) spriteName:@"city_tile_background.png"]];
 }
 
+- (void)createEnergyTiles {
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, 0)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, 1)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, 1)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(0, 2)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, 1)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(2, 1)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(2, 0)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(2, -1)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, -2)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(0, -2)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, -2)]];
+    [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, -1)]];
+}
+
 - (id)init {
     if ((self = [super init])) {
         // load spriteSheets
@@ -54,14 +69,15 @@
         background.position = ccp(512, 384);
         [_gameLayer addChild:background];
         
-        [self addChild:_gameLayer z:1];
+        [self addChild:_gameLayer z:0];
+        [self createEnergyTiles];
         [self createCity];
         
         [self scheduleUpdate];
         
         _environment = [Environment environment];
         _dayNightCycleLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 128)];
-        [self addChild:_dayNightCycleLayer z:2];
+        [self addChild:_dayNightCycleLayer z:1];
     }
     return self;
 }

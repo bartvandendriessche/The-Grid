@@ -55,7 +55,7 @@
 
 - (CGPoint)origin {
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    CGPoint p = ccp(winSize.width/2 + (_position.x * _rowHeight),
+    CGPoint p = ccp(winSize.width/2 - _halfWidth + (_position.x * _rowHeight), // NOTE: the origin of the grid has an offset to make room for the HUDLayer!
                     winSize.height/2 + (_position.y * _width) + ((_position.x % 2 == 0) ? 0 : _halfWidth));
 
     return p;

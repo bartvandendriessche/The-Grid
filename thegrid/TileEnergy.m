@@ -28,7 +28,7 @@
 }
 
 - (id)initWithRandomPropertiesAt:(HexPoint)point {
-    if ((self = [super initWithRadius:40.0f position:point sprite:nil])) {
+    if ((self = [super initWithRadius:74.0f position:point spriteName:@"city_tile_background.png"])) {
         self.scoreCoal = arc4random() % 11;
         self.scoreOil = arc4random() % 11;
         self.scoreGas = arc4random() % 11;
