@@ -16,9 +16,9 @@
 		CCFF00171374941B00EBBC2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00161374941B00EBBC2C /* main.m */; };
 		CCFF001A1374941B00EBBC2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00191374941B00EBBC2C /* AppDelegate.m */; };
 		CCFF001D1374941B00EBBC2C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF001C1374941B00EBBC2C /* RootViewController.m */; };
-		CCFF00201374941B00EBBC2C /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF001F1374941B00EBBC2C /* HelloWorldLayer.m */; };
 		CCFF002A1374946800EBBC2C /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00291374946800EBBC2C /* GameScene.m */; };
 		CCFF00371374959100EBBC2C /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00361374959100EBBC2C /* GameLayer.m */; };
+		CCFF004C1374A3F400EBBC2C /* HexNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF004B1374A3F400EBBC2C /* HexNode.m */; };
 		CCFFFEB71374941800EBBC2C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB61374941800EBBC2C /* QuartzCore.framework */; };
 		CCFFFEB91374941800EBBC2C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB81374941800EBBC2C /* OpenGLES.framework */; };
 		CCFFFEBB1374941800EBBC2C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEBA1374941800EBBC2C /* OpenAL.framework */; };
@@ -146,13 +146,13 @@
 		CCFF00191374941B00EBBC2C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CCFF001B1374941B00EBBC2C /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		CCFF001C1374941B00EBBC2C /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		CCFF001E1374941B00EBBC2C /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		CCFF001F1374941B00EBBC2C /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		CCFF00211374941B00EBBC2C /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		CCFF00281374946800EBBC2C /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		CCFF00291374946800EBBC2C /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		CCFF00351374959100EBBC2C /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		CCFF00361374959100EBBC2C /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		CCFF004A1374A3F400EBBC2C /* HexNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexNode.h; sourceTree = "<group>"; };
+		CCFF004B1374A3F400EBBC2C /* HexNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexNode.m; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCFFFEB81374941800EBBC2C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -432,6 +432,15 @@
 			name = Layers;
 			sourceTree = "<group>";
 		};
+		CCFF00481374A3D900EBBC2C /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				CCFF004A1374A3F400EBBC2C /* HexNode.h */,
+				CCFF004B1374A3F400EBBC2C /* HexNode.m */,
+			);
+			name = Grid;
+			sourceTree = "<group>";
+		};
 		CCFFFEA71374941800EBBC2C = {
 			isa = PBXGroup;
 			children = (
@@ -467,14 +476,13 @@
 		CCFFFEC61374941800EBBC2C /* thegrid */ = {
 			isa = PBXGroup;
 			children = (
+				CCFF00481374A3D900EBBC2C /* Grid */,
 				CCFF00331374957C00EBBC2C /* Layers */,
 				CCFF00271374944400EBBC2C /* Scenes */,
 				CCFF00181374941B00EBBC2C /* AppDelegate.h */,
 				CCFF00191374941B00EBBC2C /* AppDelegate.m */,
 				CCFF001B1374941B00EBBC2C /* RootViewController.h */,
 				CCFF001C1374941B00EBBC2C /* RootViewController.m */,
-				CCFF001E1374941B00EBBC2C /* HelloWorldLayer.h */,
-				CCFF001F1374941B00EBBC2C /* HelloWorldLayer.m */,
 				CCFF00211374941B00EBBC2C /* GameConfig.h */,
 				CCFFFEC71374941800EBBC2C /* Resources */,
 				CCFFFEDB1374941900EBBC2C /* libs */,
@@ -947,9 +955,9 @@
 				CCFF00171374941B00EBBC2C /* main.m in Sources */,
 				CCFF001A1374941B00EBBC2C /* AppDelegate.m in Sources */,
 				CCFF001D1374941B00EBBC2C /* RootViewController.m in Sources */,
-				CCFF00201374941B00EBBC2C /* HelloWorldLayer.m in Sources */,
 				CCFF002A1374946800EBBC2C /* GameScene.m in Sources */,
 				CCFF00371374959100EBBC2C /* GameLayer.m in Sources */,
+				CCFF004C1374A3F400EBBC2C /* HexNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
