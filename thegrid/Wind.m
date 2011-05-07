@@ -14,7 +14,7 @@
 - (id)init {
     if ((self = [super init])) {
         self.price = 400;
-        self.baseYield = 20;
+        self.baseYield = 25;
     }
     return self;
 }
@@ -24,7 +24,9 @@
 }
 
 - (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
-    return _baseYield + (_baseYield * environment.windForce / 100);
+    int yield = _baseYield + (_baseYield * environment.windForce / 10);
+    CCLOG(@"Yielding %d wind energy", yield);
+    return yield;
 }
 
 @end

@@ -13,6 +13,7 @@
 #import "TileEnergy.h"
 #import "SimpleAudioEngine.h"
 #import "Environment.h"
+#import "EnergyTypes.h"
 
 #define DURATION_DAY 5
 #define DURATION_NIGHT 5
@@ -75,7 +76,7 @@
         
         [self scheduleUpdate];
         
-        _environment = [Environment environment];
+        _environment = [[Environment environment] retain];
         _dayNightCycleLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 128)];
         [self addChild:_dayNightCycleLayer z:1];
     }
@@ -101,8 +102,7 @@
 - (int)requiredEnergy {
     int total = 0;
     for (TileCity *c in _cityTiles) {
-        [c requiredEnergy];
-        total += [c requiredEnergy];
+        total += [c requiredEnergy:_environment];
     }
     return total;
 }
@@ -116,10 +116,37 @@
 }
 
 - (void)changeEnvironmentWindForce {
-    int newForce = _environment.windForce + (arc4random() % 4) - 2;
-    if (newForce < 1) newForce = 1;
-    if (newForce > 10) newForce = 10;
+    int weight = 2;
+    
+    if (_environment.windForce <= 0) {
+        weight = 0;
+    }
+    
+    if (_environment.windForce >= 9) {
+        weight = 4;
+    }
+    
+    int newForce = _environment.windForce + (arc4random() % 4) - weight;
+    if (newForce < 0) newForce = 0;
+    if (newForce > 9) newForce = 9;
     _environment.windForce = newForce;
+}
+
+- (void)changeEnvironmentCloudiness {
+    int weight = 2;
+    
+    if (_environment.cloudiness <= 0) {
+        weight = 0;
+    }
+    
+    if (_environment.cloudiness >= 9) {
+        weight = 4;
+    }
+    
+    int newCloudiness = _environment.cloudiness + (arc4random() % 4) - weight;
+    if (newCloudiness < 0) newCloudiness = 0;
+    if (newCloudiness > 9) newCloudiness = 9;
+    _environment.cloudiness = newCloudiness;
 }
 
 - (void)switchEnvironmentToDay {
@@ -136,7 +163,7 @@
     return [CCSequence actions:
             [CCFadeTo actionWithDuration:10 opacity:0],
             [CCCallFunc actionWithTarget:self selector:@selector(playDayTheme)],
-            [CCCallFunc actionWithTarget:self selector:@selector(swithEnvironmentToDay)],
+            [CCCallFunc actionWithTarget:self selector:@selector(switchEnvironmentToDay)],
             [CCDelayTime actionWithDuration:DURATION_DAY],
             nil];
 }
@@ -145,7 +172,7 @@
     return [CCSequence actions:
             [CCFadeTo actionWithDuration:10 opacity:128],
             [CCCallFunc actionWithTarget:self selector:@selector(playNightTheme)],
-            [CCCallFunc actionWithTarget:self selector:@selector(swithEnvironmentToNight)],
+            [CCCallFunc actionWithTarget:self selector:@selector(switchEnvironmentToNight)],
             [CCDelayTime actionWithDuration:DURATION_NIGHT],
             nil];
 }
@@ -205,10 +232,24 @@
 #pragma mark -
 #pragma mark CCTargetedTouchDelegate
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    NSArray *energyTypes = [NSArray arrayWithObjects:
+                            //[Coal class],
+                            //[Oil class],
+                            //[Gas class],
+                            //[Nuclear class],
+                            [Wind class],
+                            //[Water class],
+                            [Sun class],
+                            //[Geo class],
+                            nil];
     for (HexNode* h in _hexNodes) {
         if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {
             [h randomizeColor];
             CCLOG(@"Just touched the hex at %d, %d", h.pos.x, h.pos.y);
+            if ([h isKindOfClass:[TileEnergy class]]) { 
+                ((TileEnergy*)h).energy = [[energyTypes objectAtIndex:(arc4random() % [energyTypes count])] energyType];
+                CCLOG(@"Just added %@ to this tile", [((TileEnergy*)h).energy class]);
+            }
         }
     }
     return YES;

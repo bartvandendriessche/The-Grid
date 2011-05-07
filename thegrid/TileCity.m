@@ -7,12 +7,13 @@
 //
 
 #import "TileCity.h"
-
+#import "Environment.h"
 
 @implementation TileCity
 
-- (int)requiredEnergy {
-    return 0;
+- (int)requiredEnergy:(Environment*)environment {
+    int required = 35 + arc4random() % 10;
+    return environment.dayTime ? required : required / 5;
 }
 
 @end

@@ -8,11 +8,12 @@
 
 #import "HexNode.h"
 
+@class Environment;
 
 @interface TileCity : HexNode {
     
 }
 
-- (int)requiredEnergy;
+- (int)requiredEnergy:(Environment*)environment;
 
 @end

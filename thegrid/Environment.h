@@ -12,10 +12,12 @@
 @interface Environment : NSObject {
     BOOL _dayTime;
     int _windForce;
+    int _cloudiness;
 }
 
 @property (nonatomic,assign) BOOL dayTime;
 @property (nonatomic,assign) int windForce;
+@property (nonatomic,assign) int cloudiness;
 
 + (id)environment;
 
