@@ -8,9 +8,9 @@
 
 #import "cocos2d.h"
 
+@class HexNode;
 
 @interface GameLayer : CCLayerColor {
-    
 }
 
 + (id)layer;

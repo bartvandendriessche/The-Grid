@@ -8,6 +8,7 @@
 
 #import "GameLayer.h"
 #import "HexNode.h"
+#import "TileCity.h"
 
 
 @implementation GameLayer
@@ -18,13 +19,15 @@
 
 - (id)init {
     if ((self = [super initWithColor:ccc4(255, 255, 255, 255)])) {
-        CCLOG(@"GameLayer initialized, DRAW SUM SHEPS !");
-        [self addChild:[HexNode nodeWithRadius:40.0f position:CGPointMake(200, 200)]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:CGPointMake(235, 265)]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:CGPointMake(270, 200)]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:CGPointMake(235, 135)]];
     }
     return self;
+}
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void)dealloc {
+    [super dealloc];
 }
 
 @end

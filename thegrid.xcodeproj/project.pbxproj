@@ -19,6 +19,8 @@
 		CCFF002A1374946800EBBC2C /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00291374946800EBBC2C /* GameScene.m */; };
 		CCFF00371374959100EBBC2C /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00361374959100EBBC2C /* GameLayer.m */; };
 		CCFF004C1374A3F400EBBC2C /* HexNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF004B1374A3F400EBBC2C /* HexNode.m */; };
+		CCFF00571375720900EBBC2C /* TileCity.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00561375720900EBBC2C /* TileCity.m */; };
+		CCFF005A1375721700EBBC2C /* TileEnergy.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00591375721700EBBC2C /* TileEnergy.m */; };
 		CCFFFEB71374941800EBBC2C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB61374941800EBBC2C /* QuartzCore.framework */; };
 		CCFFFEB91374941800EBBC2C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB81374941800EBBC2C /* OpenGLES.framework */; };
 		CCFFFEBB1374941800EBBC2C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEBA1374941800EBBC2C /* OpenAL.framework */; };
@@ -153,6 +155,10 @@
 		CCFF00361374959100EBBC2C /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		CCFF004A1374A3F400EBBC2C /* HexNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexNode.h; sourceTree = "<group>"; };
 		CCFF004B1374A3F400EBBC2C /* HexNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexNode.m; sourceTree = "<group>"; };
+		CCFF00551375720900EBBC2C /* TileCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileCity.h; sourceTree = "<group>"; };
+		CCFF00561375720900EBBC2C /* TileCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileCity.m; sourceTree = "<group>"; };
+		CCFF00581375721600EBBC2C /* TileEnergy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileEnergy.h; sourceTree = "<group>"; };
+		CCFF00591375721700EBBC2C /* TileEnergy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileEnergy.m; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCFFFEB81374941800EBBC2C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -437,6 +443,10 @@
 			children = (
 				CCFF004A1374A3F400EBBC2C /* HexNode.h */,
 				CCFF004B1374A3F400EBBC2C /* HexNode.m */,
+				CCFF00551375720900EBBC2C /* TileCity.h */,
+				CCFF00561375720900EBBC2C /* TileCity.m */,
+				CCFF00581375721600EBBC2C /* TileEnergy.h */,
+				CCFF00591375721700EBBC2C /* TileEnergy.m */,
 			);
 			name = Grid;
 			sourceTree = "<group>";
@@ -958,6 +968,8 @@
 				CCFF002A1374946800EBBC2C /* GameScene.m in Sources */,
 				CCFF00371374959100EBBC2C /* GameLayer.m in Sources */,
 				CCFF004C1374A3F400EBBC2C /* HexNode.m in Sources */,
+				CCFF00571375720900EBBC2C /* TileCity.m in Sources */,
+				CCFF005A1375721700EBBC2C /* TileEnergy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,8 +1022,10 @@
 				GCC_PREFIX_HEADER = thegrid/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = thegrid/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1025,8 +1039,10 @@
 				GCC_PREFIX_HEADER = thegrid/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = thegrid/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
