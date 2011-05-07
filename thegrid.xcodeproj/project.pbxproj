@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0A2AFC13756FED0072B21C /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2AFB13756FED0072B21C /* HUDLayer.m */; };
+		AB0A2B091375747A0072B21C /* HUDIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2B081375747A0072B21C /* HUDIcon.m */; };
 		CCFF00001374941A00EBBC2C /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFFFFFF1374941A00EBBC2C /* CJSONSerializer.m */; };
 		CCFF00051374941B00EBBC2C /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00041374941B00EBBC2C /* FontLabel.m */; };
 		CCFF00081374941B00EBBC2C /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00071374941B00EBBC2C /* FontLabelStringDrawing.m */; };
@@ -131,6 +133,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB0A2AFA13756FED0072B21C /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
+		AB0A2AFB13756FED0072B21C /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
+		AB0A2B071375747A0072B21C /* HUDIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDIcon.h; sourceTree = "<group>"; };
+		AB0A2B081375747A0072B21C /* HUDIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDIcon.m; sourceTree = "<group>"; };
 		CCFF00011374941B00EBBC2C /* JSONRepresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONRepresentation.h; path = libs/TouchJSON/JSON/JSONRepresentation.h; sourceTree = "<group>"; };
 		CCFF00031374941B00EBBC2C /* FontLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FontLabel.h; path = libs/FontLabel/FontLabel.h; sourceTree = "<group>"; };
 		CCFF00041374941B00EBBC2C /* FontLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FontLabel.m; path = libs/FontLabel/FontLabel.m; sourceTree = "<group>"; };
@@ -397,6 +403,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB0A2B061375744C0072B21C /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				AB0A2B071375747A0072B21C /* HUDIcon.h */,
+				AB0A2B081375747A0072B21C /* HUDIcon.m */,
+			);
+			name = HUD;
+			sourceTree = "<group>";
+		};
 		CCFF00021374941B00EBBC2C /* FontLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +453,8 @@
 			children = (
 				CCFF00351374959100EBBC2C /* GameLayer.h */,
 				CCFF00361374959100EBBC2C /* GameLayer.m */,
+				AB0A2AFA13756FED0072B21C /* HUDLayer.h */,
+				AB0A2AFB13756FED0072B21C /* HUDLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -499,6 +516,7 @@
 		CCFFFEC61374941800EBBC2C /* thegrid */ = {
 			isa = PBXGroup;
 			children = (
+				AB0A2B061375744C0072B21C /* HUD */,
 				CCFF00481374A3D900EBBC2C /* Grid */,
 				CCFF00331374957C00EBBC2C /* Layers */,
 				CCFF00271374944400EBBC2C /* Scenes */,
@@ -986,6 +1004,8 @@
 				CCFF004C1374A3F400EBBC2C /* HexNode.m in Sources */,
 				CCFF00571375720900EBBC2C /* TileCity.m in Sources */,
 				CCFF005A1375721700EBBC2C /* TileEnergy.m in Sources */,
+				AB0A2AFC13756FED0072B21C /* HUDLayer.m in Sources */,
+				AB0A2B091375747A0072B21C /* HUDIcon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
