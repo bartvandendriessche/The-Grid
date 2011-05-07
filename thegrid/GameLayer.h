@@ -8,12 +8,15 @@
 
 #import "cocos2d.h"
 
+@class HexNode;
 
 @interface GameLayer : CCLayerColor {
-    
+    NSMutableArray* _hexNodes;
 }
 
 + (id)layer;
 - (id)init;
+
+- (void)addHexNode:(HexNode*)hexNode;
 
 @end

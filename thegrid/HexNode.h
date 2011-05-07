@@ -27,6 +27,8 @@ HexPointMake(int x, int y){
     float _halfWidth;
     float _width;
     
+    ccColor4B _color;
+    
     HexPoint _position;
     CCSprite* _sprite;
 }
@@ -43,5 +45,7 @@ HexPointMake(int x, int y){
 + (id)nodeWithRadius:(float)radius position:(HexPoint)position sprite:(CCSprite*)sprite;
 - (id)initWithRadius:(float)radius position:(HexPoint)position sprite:(CCSprite*)sprite;
 - (CGPoint)origin;
+- (void)randomizeColor;
+- (BOOL)isTouchForMe:(CGPoint)touch;
 
 @end

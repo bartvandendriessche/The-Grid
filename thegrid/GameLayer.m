@@ -21,15 +21,63 @@
         CCLOG(@"GameLayer initialized, DRAW SUM SHEPS !");
         
         // make a center hex with 6 hexes around it        
-        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,0) sprite:nil]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,1) sprite:nil]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(1,0) sprite:nil]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,1) sprite:nil]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,-1) sprite:nil]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,0) sprite:nil]];
-        [self addChild:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,-1) sprite:nil]];
+        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,0) sprite:nil]];
+        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,1) sprite:nil]];
+        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(1,0) sprite:nil]];
+        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,1) sprite:nil]];
+        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(0,-1) sprite:nil]];
+        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,0) sprite:nil]];
+        [self addHexNode:[HexNode nodeWithRadius:40.0f position:HexPointMake(-1,-1) sprite:nil]];
     }
     return self;
+}
+
+- (void)addHexNode:(HexNode*)hexNode {
+    [self addChild:hexNode];
+    if (!_hexNodes) {
+        _hexNodes = [[NSMutableArray alloc] init];
+    }
+    [_hexNodes addObject:hexNode];
+}
+
+#pragma mark -
+#pragma mark Overridden methods
+- (void)onEnter {
+    [super onEnter];
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
+}
+
+- (void)onExit {
+    [super onExit];
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+}
+
+#pragma mark -
+#pragma mark CCTargetedTouchDelegate
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    CCLOG(@"Fondled the layer");
+    for (HexNode* h in _hexNodes) {
+        if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {
+            [h randomizeColor];
+        }
+    }
+    return YES;
+}
+
+// touch updates:
+- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+    
+}
+
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+}
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void)dealloc {
+    [_hexNodes release], _hexNodes = nil;
+    [super dealloc];
 }
 
 @end

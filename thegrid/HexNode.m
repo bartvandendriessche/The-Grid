@@ -34,6 +34,7 @@
         self.pos = position;
         self.sprite = sprite;
         _sprite.position = [self origin];
+        _color = ccc4(0, 0, 0, 255);
     }
     return self;
 }
@@ -45,9 +46,13 @@
     return p;
 }
 
-- (void)drawHexAt:(CGPoint)center {
-    int x = center.x;
-    int y = center.y;
+- (void)randomizeColor {
+    _color = ccc4(arc4random() % 256, arc4random() % 256, arc4random() % 256, 255);
+}
+
+- (void)drawHexAt:(CGPoint)origin {
+    int x = origin.x;
+    int y = origin.y;
     ccDrawLine(ccp(x-_halfWidth,y-_radius/2), ccp(x-_halfWidth,y+_radius/2));
     ccDrawLine(ccp(x-_halfWidth,y+_radius/2), ccp(x,y+_radius));
     ccDrawLine(ccp(x,y+_radius), ccp(x+_halfWidth,y+_radius/2));
@@ -56,11 +61,42 @@
     ccDrawLine(ccp(x,y-_radius),ccp(x-_halfWidth,y-_radius/2));
 }
 
+- (BOOL)sameSide:(CGPoint)p1 p2:(CGPoint)p2 a:(CGPoint)a b:(CGPoint)b {
+    CGFloat cp1 = ccpCross(ccpSub(b, a), ccpSub(p1, a));
+    CGFloat cp2 = ccpCross(ccpSub(b, a), ccpSub(p2, a));
+    return cp1 * cp2 >= 0;
+}
+
+- (BOOL)isTouchForMe:(CGPoint)touch {
+    CGPoint origin = [self origin];
+    int x = origin.x;
+    int y = origin.y;
+    if (![self sameSide:touch p2:origin a:ccp(x-_halfWidth,y-_radius/2) b:ccp(x-_halfWidth, y+_radius/2)]) {
+        return NO;
+    }
+    if (![self sameSide:touch p2:origin a:ccp(x-_halfWidth,y+_radius/2) b:ccp(x,y+_radius)]) {
+        return NO;
+    }
+    if (![self sameSide:touch p2:origin a:ccp(x,y+_radius) b:ccp(x+_halfWidth,y+_radius/2)]) {
+        return NO;
+    }
+    if (![self sameSide:touch p2:origin a:ccp(x+_halfWidth,y+_radius/2) b:ccp(x+_halfWidth,y-_radius/2)]) {
+        return NO;
+    }
+    if (![self sameSide:touch p2:origin a:ccp(x+_halfWidth,y-_radius/2) b:ccp(x,y-_radius)]) {
+        return NO;
+    }
+    if (![self sameSide:touch p2:origin a:ccp(x,y-_radius) b:ccp(x-_halfWidth,y-_radius/2)]) {
+        return NO;
+    }
+    return YES;
+}
+
 - (void)draw {
     glLineWidth(5.0f);
     glEnable(GL_LINE_SMOOTH);
                 
-    glColor4ub(0, 0, 0, 255);
+    glColor4ub(_color.r, _color.g, _color.b, 255);
     [self drawHexAt:[self origin]];
 }
 
