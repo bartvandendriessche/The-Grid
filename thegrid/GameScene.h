@@ -9,12 +9,14 @@
 #import "cocos2d.h"
 
 @class GameLayer;
+@class HUDLayer;
 @class HexNode;
 @class TileCity;
 @class TileEnergy;
 
 @interface GameScene : CCScene<CCTargetedTouchDelegate> {
     GameLayer *_gameLayer;
+    HUDLayer *_hudLayer;
     CCLayer *_dayNightCycleLayer;
     
     NSMutableArray* _hexNodes;

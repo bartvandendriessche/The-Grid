@@ -10,6 +10,9 @@
 		AB0A2AFC13756FED0072B21C /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2AFB13756FED0072B21C /* HUDLayer.m */; };
 		AB0A2B091375747A0072B21C /* HUDIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2B081375747A0072B21C /* HUDIcon.m */; };
 		AB7BC7DE137584C3008685EE /* PackTextures.sh in Resources */ = {isa = PBXBuildFile; fileRef = AB7BC7DD137584C3008685EE /* PackTextures.sh */; };
+		ABCEA8251375B95600821EFB /* icon-assets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8231375B95600821EFB /* icon-assets.plist */; };
+		ABCEA8261375B95600821EFB /* icon-assets.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */; };
+		ABCEA8291375C01800821EFB /* OptionWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8281375C01800821EFB /* OptionWheel.png */; };
 		ABD5372813758E030032A691 /* tile-assets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372613758E030032A691 /* tile-assets.plist */; };
 		ABD5372913758E030032A691 /* tile-assets.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372713758E030032A691 /* tile-assets.pvr.ccz */; };
 		ABD5372C137598B70032A691 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372B137598B70032A691 /* Background.png */; };
@@ -152,6 +155,9 @@
 		AB0A2B071375747A0072B21C /* HUDIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDIcon.h; sourceTree = "<group>"; };
 		AB0A2B081375747A0072B21C /* HUDIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDIcon.m; sourceTree = "<group>"; };
 		AB7BC7DD137584C3008685EE /* PackTextures.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = thegrid/Scripts/PackTextures.sh; sourceTree = "<group>"; };
+		ABCEA8231375B95600821EFB /* icon-assets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "icon-assets.plist"; path = "Resources/SpriteSheets/icon-assets.plist"; sourceTree = "<group>"; };
+		ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "icon-assets.pvr.ccz"; path = "Resources/SpriteSheets/icon-assets.pvr.ccz"; sourceTree = "<group>"; };
+		ABCEA8281375C01800821EFB /* OptionWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OptionWheel.png; path = Art/OptionWheel.png; sourceTree = "<group>"; };
 		ABD5372613758E030032A691 /* tile-assets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tile-assets.plist"; path = "Resources/SpriteSheets/tile-assets.plist"; sourceTree = "<group>"; };
 		ABD5372713758E030032A691 /* tile-assets.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "tile-assets.pvr.ccz"; path = "Resources/SpriteSheets/tile-assets.pvr.ccz"; sourceTree = "<group>"; };
 		ABD5372B137598B70032A691 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Art/Background.png; sourceTree = "<group>"; };
@@ -205,7 +211,7 @@
 		CCFF00AD1375975700EBBC2C /* Sun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sun.m; sourceTree = "<group>"; };
 		CCFF00AF1375976000EBBC2C /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geo.h; sourceTree = "<group>"; };
 		CCFF00B01375976000EBBC2C /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
-		CCFF00BE13759FDC00EBBC2C /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Environment.h; sourceTree = "<group>"; };
+		CCFF00BE13759FDC00EBBC2C /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
 		CCFF00BF13759FDD00EBBC2C /* Environment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Environment.m; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -461,6 +467,8 @@
 		ABD5372413758DED0032A691 /* SpriteSheets */ = {
 			isa = PBXGroup;
 			children = (
+				ABCEA8231375B95600821EFB /* icon-assets.plist */,
+				ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */,
 				ABD5372613758E030032A691 /* tile-assets.plist */,
 				ABD5372713758E030032A691 /* tile-assets.pvr.ccz */,
 			);
@@ -470,6 +478,7 @@
 		ABD5372A1375988D0032A691 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				ABCEA8281375C01800821EFB /* OptionWheel.png */,
 				ABD5372B137598B70032A691 /* Background.png */,
 			);
 			name = Sprites;
@@ -1000,6 +1009,9 @@
 				ABD5372813758E030032A691 /* tile-assets.plist in Resources */,
 				ABD5372913758E030032A691 /* tile-assets.pvr.ccz in Resources */,
 				ABD5372C137598B70032A691 /* Background.png in Resources */,
+				ABCEA8251375B95600821EFB /* icon-assets.plist in Resources */,
+				ABCEA8261375B95600821EFB /* icon-assets.pvr.ccz in Resources */,
+				ABCEA8291375C01800821EFB /* OptionWheel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

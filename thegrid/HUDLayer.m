@@ -19,29 +19,52 @@
         CCLOG(@"GameLayer initialized, DRAW SUM SHEPS !");
         
         // Create sprite-icons
-        HUDIcon *coalIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeBuildCoal];
-        HUDIcon *oilIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeBuildOil];
-        HUDIcon *gasIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeBuildGas];
-        HUDIcon *nuclearIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeBuildNuclear];
+        HUDIcon *coalIcon = [HUDIcon iconWithSpriteFrameName:@"icon_coal.png" andType:kIconTypeBuildCoal];
+        HUDIcon *oilIcon = [HUDIcon iconWithSpriteFrameName:@"icon_oil.png" andType:kIconTypeBuildOil];
+        HUDIcon *gasIcon = [HUDIcon iconWithSpriteFrameName:@"icon_gas.png" andType:kIconTypeBuildGas];
+        HUDIcon *nuclearIcon = [HUDIcon iconWithSpriteFrameName:@"icon_nuclear.png" andType:kIconTypeBuildNuclear];
         
-        HUDIcon *windIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeBuildWind];
-        HUDIcon *sunIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeBuildSun];
-        HUDIcon *geoIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeBuildGeo];
-        HUDIcon *waterIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeBuildWater];
+        HUDIcon *windIcon = [HUDIcon iconWithSpriteFrameName:@"icon_wind.png" andType:kIconTypeBuildWind];
+        HUDIcon *sunIcon = [HUDIcon iconWithSpriteFrameName:@"icon_sun.png" andType:kIconTypeBuildSun];
+        HUDIcon *geoIcon = [HUDIcon iconWithSpriteFrameName:@"icon_geo.png" andType:kIconTypeBuildGeo];
+        HUDIcon *waterIcon = [HUDIcon iconWithSpriteFrameName:@"icon_water.png" andType:kIconTypeBuildWater];
         
-        _demolishIcon = [HUDIcon iconWithSpriteFrameName:@"" andType:kIconTypeDemolish];
+        _demolishIcon = [HUDIcon iconWithSpriteFrameName:@"icon_coal.png" andType:kIconTypeDemolish];
         
         // add build icons to array
-        [_buildIcons addObject:coalIcon];
-        [_buildIcons addObject:oilIcon];
-        [_buildIcons addObject:gasIcon];
-        [_buildIcons addObject:nuclearIcon];
-        [_buildIcons addObject:windIcon];
-        [_buildIcons addObject:sunIcon];
-        [_buildIcons addObject:geoIcon];
-        [_buildIcons addObject:waterIcon];
+        _buildIcons = [[NSMutableArray arrayWithObjects:coalIcon, oilIcon, nuclearIcon, gasIcon, sunIcon, waterIcon, windIcon, geoIcon, nil] retain];
+        
+        // load option circle
+        _optionCircle = [CCSprite spriteWithFile:@"OptionWheel.png"];
+        _optionCircle.position = ccp(880, 384);
+        [self addChild:_optionCircle];
+        
+        // add icons to the option circle
+        for (int i = 0; i < [_buildIcons count]; i++) {
+            HUDIcon *currentIcon = (HUDIcon*)[_buildIcons objectAtIndex:i];
+            currentIcon.position = ccp(cos(CC_DEGREES_TO_RADIANS(i * 45)) * 80 + _optionCircle.contentSize.width / 2, 
+                                       sin(CC_DEGREES_TO_RADIANS(i * 45)) * 80 + _optionCircle.contentSize.height / 2);
+            [_optionCircle addChild:currentIcon];
+        }
     }
     return self;
+}
+
+- (void)showOptionCircleOnPosition:(CGPoint) forBuild:(BOOL)build {
+    if (_optionCircle.visible) {
+        [self hideOptionCircle];
+    }
+    
+    
+}
+    
+- (void)hideOptionCircle {
+    
+}
+
+- (void) dealloc {
+    [_buildIcons release], _buildIcons = nil;
+    [super dealloc];
 }
 
 @end

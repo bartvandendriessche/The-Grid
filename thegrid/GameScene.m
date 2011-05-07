@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "GameLayer.h"
+#import "HUDLayer.h"
 #import "HexNode.h"
 #import "TileCity.h"
 #import "TileEnergy.h"
@@ -60,6 +61,7 @@
     if ((self = [super init])) {
         // load spriteSheets
         [self loadSpriteSheetWithName:@"tile-assets"];
+        [self loadSpriteSheetWithName:@"icon-assets"];
         
         _gameLayer = [GameLayer layer];
         
@@ -76,6 +78,9 @@
         
         _dayNightCycleLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 128)];
         [self addChild:_dayNightCycleLayer z:1];
+        
+        _hudLayer = [HUDLayer layer];
+        [self addChild:_hudLayer];
     }
     return self;
 }

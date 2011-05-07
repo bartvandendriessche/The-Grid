@@ -12,9 +12,13 @@
 @interface HUDLayer : CCLayer {
     NSMutableArray *_buildIcons;
     HUDIcon *_demolishIcon;
+    CCSprite *_optionCircle;
 }
 
 + (id)layer;
+
 - (id)init;
+- (void)showOptionCircleOnPosition:(CGPoint) forBuild:(BOOL)build;
+- (void)hideOptionCircle;
 
 @end
