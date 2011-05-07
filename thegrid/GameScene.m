@@ -25,20 +25,34 @@
     return [[[GameScene alloc] init] autorelease];
 }
 
+- (void)loadSpriteSheetWithName:(NSString*)name {
+    CCSpriteBatchNode *spritesBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.pvr.ccz", name]];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", name]];
+}
+
 - (void)createCity {
     // make a center hex with 6 hexes around it
-    [self addCityTile:[TileCity nodeWithRadius:40.0f position:HexPointMake(-1,0) sprite:nil]];
-    [self addCityTile:[TileCity nodeWithRadius:40.0f position:HexPointMake(-1,-1) sprite:nil]];
-    [self addCityTile:[TileCity nodeWithRadius:40.0f position:HexPointMake(0,0) sprite:nil]];
-    [self addCityTile:[TileCity nodeWithRadius:40.0f position:HexPointMake(0,1) sprite:nil]];
-    [self addCityTile:[TileCity nodeWithRadius:40.0f position:HexPointMake(0,-1) sprite:nil]];
-    [self addCityTile:[TileCity nodeWithRadius:40.0f position:HexPointMake(1,0) sprite:nil]];
-    [self addCityTile:[TileCity nodeWithRadius:40.0f position:HexPointMake(1,-1) sprite:nil]];
+    [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(-1,0) spriteName:@"city_tile_background.png"]];
+    [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(-1,-1) spriteName:@"city_tile_background.png"]];
+    [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(0,0) spriteName:@"city_tile_background.png"]];
+    [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(0,1) spriteName:@"city_tile_background.png"]];
+    [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(0,-1) spriteName:@"city_tile_background.png"]];
+    [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(1,0) spriteName:@"city_tile_background.png"]];
+    [self addCityTile:[TileCity nodeWithRadius:74.0f position:HexPointMake(1,-1) spriteName:@"city_tile_background.png"]];
 }
 
 - (id)init {
     if ((self = [super init])) {
+        // load spriteSheets
+        [self loadSpriteSheetWithName:@"tile-assets"];
+        
         _gameLayer = [GameLayer layer];
+        
+        // load background
+        CCSprite *background = [CCSprite spriteWithFile:@"background.png"];
+        background.position = ccp(512, 384);
+        [_gameLayer addChild:background];
+        
         [self addChild:_gameLayer z:1];
         [self createCity];
         

@@ -19,11 +19,11 @@
 
 @synthesize sprite = _sprite;
 
-+ (id)nodeWithRadius:(float)radius position:(HexPoint)position sprite:(CCSprite *)sprite{
-    return [[[HexNode alloc] initWithRadius:radius position:position sprite:sprite] autorelease];
++ (id)nodeWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName {
+    return [[[HexNode alloc] initWithRadius:radius position:position spriteName:spriteName] autorelease];
 }
 
-- (id)initWithRadius:(float)radius position:(HexPoint)position sprite:(CCSprite *)sprite{
+- (id)initWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName {
     if ((self = [super init])) {
         self.radius = radius;
         self.height = 2 * _radius;
@@ -32,10 +32,12 @@
         self.width = 2 * _halfWidth;
         
         self.pos = position;
-        self.sprite = sprite;
-        _sprite.position = [self origin];
-        _color = ccc4(0, 0, 0, 255);
         
+        self.sprite = [CCSprite spriteWithSpriteFrameName:spriteName];
+        _sprite.position = [self origin];
+        [self addChild:_sprite];
+        
+        _color = ccc4(0, 0, 0, 255);
         
         CGPoint origin = [self origin];
         int x = origin.x;
@@ -102,7 +104,7 @@
 }
 
 - (void)draw {
-    glLineWidth(5.0f);
+    glLineWidth(1.0f);
     glEnable(GL_LINE_SMOOTH);
                 
     glColor4ub(_color.r, _color.g, _color.b, 255);

@@ -50,8 +50,8 @@ HexPointMake(int x, int y){
 @property (nonatomic, assign) HexPoint pos;
 @property (nonatomic, retain) CCSprite* sprite;
 
-+ (id)nodeWithRadius:(float)radius position:(HexPoint)position sprite:(CCSprite*)sprite;
-- (id)initWithRadius:(float)radius position:(HexPoint)position sprite:(CCSprite*)sprite;
++ (id)nodeWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName;
+- (id)initWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName;
 - (CGPoint)origin;
 - (void)randomizeColor;
 - (BOOL)isTouchForMe:(CGPoint)touch;

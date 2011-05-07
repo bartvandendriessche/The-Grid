@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		AB0A2AFC13756FED0072B21C /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2AFB13756FED0072B21C /* HUDLayer.m */; };
 		AB0A2B091375747A0072B21C /* HUDIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2B081375747A0072B21C /* HUDIcon.m */; };
+		AB7BC7DE137584C3008685EE /* PackTextures.sh in Resources */ = {isa = PBXBuildFile; fileRef = AB7BC7DD137584C3008685EE /* PackTextures.sh */; };
+		ABD5372813758E030032A691 /* tile-assets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372613758E030032A691 /* tile-assets.plist */; };
+		ABD5372913758E030032A691 /* tile-assets.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372713758E030032A691 /* tile-assets.pvr.ccz */; };
+		ABD5372C137598B70032A691 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372B137598B70032A691 /* Background.png */; };
 		CCFF00001374941A00EBBC2C /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFFFFFF1374941A00EBBC2C /* CJSONSerializer.m */; };
 		CCFF00051374941B00EBBC2C /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00041374941B00EBBC2C /* FontLabel.m */; };
 		CCFF00081374941B00EBBC2C /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00071374941B00EBBC2C /* FontLabelStringDrawing.m */; };
@@ -146,6 +150,10 @@
 		AB0A2AFB13756FED0072B21C /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		AB0A2B071375747A0072B21C /* HUDIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDIcon.h; sourceTree = "<group>"; };
 		AB0A2B081375747A0072B21C /* HUDIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDIcon.m; sourceTree = "<group>"; };
+		AB7BC7DD137584C3008685EE /* PackTextures.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = thegrid/Scripts/PackTextures.sh; sourceTree = "<group>"; };
+		ABD5372613758E030032A691 /* tile-assets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tile-assets.plist"; path = "Resources/SpriteSheets/tile-assets.plist"; sourceTree = "<group>"; };
+		ABD5372713758E030032A691 /* tile-assets.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "tile-assets.pvr.ccz"; path = "Resources/SpriteSheets/tile-assets.pvr.ccz"; sourceTree = "<group>"; };
+		ABD5372B137598B70032A691 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Art/Background.png; sourceTree = "<group>"; };
 		CCFF00011374941B00EBBC2C /* JSONRepresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONRepresentation.h; path = libs/TouchJSON/JSON/JSONRepresentation.h; sourceTree = "<group>"; };
 		CCFF00031374941B00EBBC2C /* FontLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FontLabel.h; path = libs/FontLabel/FontLabel.h; sourceTree = "<group>"; };
 		CCFF00041374941B00EBBC2C /* FontLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FontLabel.m; path = libs/FontLabel/FontLabel.m; sourceTree = "<group>"; };
@@ -439,6 +447,31 @@
 			name = HUD;
 			sourceTree = "<group>";
 		};
+		AB7BC7D313758084008685EE /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				AB7BC7DD137584C3008685EE /* PackTextures.sh */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
+		ABD5372413758DED0032A691 /* SpriteSheets */ = {
+			isa = PBXGroup;
+			children = (
+				ABD5372613758E030032A691 /* tile-assets.plist */,
+				ABD5372713758E030032A691 /* tile-assets.pvr.ccz */,
+			);
+			name = SpriteSheets;
+			sourceTree = "<group>";
+		};
+		ABD5372A1375988D0032A691 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				ABD5372B137598B70032A691 /* Background.png */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
 		CCFF00021374941B00EBBC2C /* FontLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +562,7 @@
 		CCFFFEA71374941800EBBC2C = {
 			isa = PBXGroup;
 			children = (
+				AB7BC7D313758084008685EE /* Scripts */,
 				CCFFFEC61374941800EBBC2C /* thegrid */,
 				CCFFFEB51374941800EBBC2C /* Frameworks */,
 				CCFFFEB31374941800EBBC2C /* Products */,
@@ -580,6 +614,8 @@
 		CCFFFEC71374941800EBBC2C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ABD5372A1375988D0032A691 /* Sprites */,
+				ABD5372413758DED0032A691 /* SpriteSheets */,
 				CCFF007913757B8700EBBC2C /* Sound */,
 				CCFFFEC81374941800EBBC2C /* Default.png */,
 				CCFFFECA1374941800EBBC2C /* fps_images.png */,
@@ -881,6 +917,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		AB7BC7DF13758589008685EE /* TexturePacker */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "\"$(PROJECT_DIR)/thegrid/Scripts/PackTextures.sh\"";
+			buildConfigurationList = AB7BC7E013758589008685EE /* Build configuration list for PBXLegacyTarget "TexturePacker" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/sh;
+			buildWorkingDirectory = "$(SRCROOT)";
+			dependencies = (
+			);
+			name = TexturePacker;
+			passBuildSettingsInEnvironment = 1;
+			productName = TexturePacker;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		CCFFFEB11374941800EBBC2C /* thegrid */ = {
 			isa = PBXNativeTarget;
@@ -917,6 +970,7 @@
 			projectRoot = "";
 			targets = (
 				CCFFFEB11374941800EBBC2C /* thegrid */,
+				AB7BC7DF13758589008685EE /* TexturePacker */,
 			);
 		};
 /* End PBXProject section */
@@ -937,6 +991,10 @@
 				CCFFFEDA1374941900EBBC2C /* iTunesArtwork in Resources */,
 				CCFF007B13757B9F00EBBC2C /* The Grid main theme day.wav in Resources */,
 				CCFF007D13757C4F00EBBC2C /* The grid  Night fall.wav in Resources */,
+				AB7BC7DE137584C3008685EE /* PackTextures.sh in Resources */,
+				ABD5372813758E030032A691 /* tile-assets.plist in Resources */,
+				ABD5372913758E030032A691 /* tile-assets.pvr.ccz in Resources */,
+				ABD5372C137598B70032A691 /* Background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1066,6 +1124,47 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		AB7BC7E113758589008685EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AB7BC7E213758589008685EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		CCFF00221374941B00EBBC2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1141,6 +1240,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AB7BC7E013758589008685EE /* Build configuration list for PBXLegacyTarget "TexturePacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB7BC7E113758589008685EE /* Debug */,
+				AB7BC7E213758589008685EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CCFF00241374941B00EBBC2C /* Build configuration list for PBXNativeTarget "thegrid" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
