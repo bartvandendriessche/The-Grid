@@ -12,10 +12,12 @@
 @class HexNode;
 @class TileCity;
 @class TileEnergy;
+@class Environment;
 
 @interface GameScene : CCScene<CCTargetedTouchDelegate> {
     GameLayer *_gameLayer;
     CCLayer *_dayNightCycleLayer;
+    Environment *_environment;
     
     NSMutableArray* _hexNodes;
     NSMutableArray* _cityTiles;

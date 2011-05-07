@@ -8,6 +8,7 @@
 #import "HexNode.h"
 
 @class EnergyType;
+@class Environment;
 
 @interface TileEnergy : HexNode {
     int _scoreCoal;
@@ -37,5 +38,7 @@
 
 + (id)tileWithRandomPropertiesAt:(HexPoint)point;
 - (id)initWithRandomPropertiesAt:(HexPoint)point;
+
+- (int)yield:(Environment*)environment;
 
 @end

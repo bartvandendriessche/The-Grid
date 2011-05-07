@@ -13,4 +13,6 @@
     
 }
 
+- (int)requiredEnergy;
+
 @end

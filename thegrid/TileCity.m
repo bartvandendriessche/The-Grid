@@ -11,4 +11,8 @@
 
 @implementation TileCity
 
+- (int)requiredEnergy {
+    return 0;
+}
+
 @end

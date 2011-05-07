@@ -12,6 +12,7 @@
 #import "TileCity.h"
 #import "TileEnergy.h"
 #import "SimpleAudioEngine.h"
+#import "Environment.h"
 
 #define DURATION_DAY 5
 #define DURATION_NIGHT 5
@@ -58,6 +59,7 @@
         
         [self scheduleUpdate];
         
+        _environment = [Environment environment];
         _dayNightCycleLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 128)];
         [self addChild:_dayNightCycleLayer z:2];
     }
@@ -77,13 +79,48 @@
 #pragma mark - 
 #pragma mark Gameloop
 - (void)update:(ccTime)dt {
-    CCLOG(@"Hey Bitzes");
+    CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
+}
+
+- (int)requiredEnergy {
+    int total = 0;
+    for (TileCity *c in _cityTiles) {
+        [c requiredEnergy];
+        total += [c requiredEnergy];
+    }
+    return total;
+}
+
+- (int)yieldedEnergy {
+    int yielded = 0;
+    for (TileEnergy *e in _energyTiles) {
+        yielded += [e yield:_environment];
+    }
+    return yielded;
+}
+
+- (void)changeEnvironmentWindForce {
+    int newForce = _environment.windForce + (arc4random() % 4) - 2;
+    if (newForce < 1) newForce = 1;
+    if (newForce > 10) newForce = 10;
+    _environment.windForce = newForce;
+}
+
+- (void)switchEnvironmentToDay {
+    _environment.dayTime = YES;
+    [self changeEnvironmentWindForce];
+}
+
+- (void)switchEnvironmentToNight {
+    _environment.dayTime = NO;
+    [self changeEnvironmentWindForce];
 }
 
 - (CCFiniteTimeAction*)dayCycle {
     return [CCSequence actions:
             [CCFadeTo actionWithDuration:10 opacity:0],
             [CCCallFunc actionWithTarget:self selector:@selector(playDayTheme)],
+            [CCCallFunc actionWithTarget:self selector:@selector(swithEnvironmentToDay)],
             [CCDelayTime actionWithDuration:DURATION_DAY],
             nil];
 }
@@ -92,6 +129,7 @@
     return [CCSequence actions:
             [CCFadeTo actionWithDuration:10 opacity:128],
             [CCCallFunc actionWithTarget:self selector:@selector(playNightTheme)],
+            [CCCallFunc actionWithTarget:self selector:@selector(swithEnvironmentToNight)],
             [CCDelayTime actionWithDuration:DURATION_NIGHT],
             nil];
 }
@@ -170,6 +208,7 @@
 
 - (void)dealloc {
     [_gameLayer release], _gameLayer = nil;
+    [_environment release], _environment = nil;
     [_cityTiles release], _cityTiles = nil;
     [_energyTiles release], _energyTiles = nil;
     [_hexNodes release], _hexNodes = nil;
