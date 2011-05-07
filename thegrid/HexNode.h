@@ -31,6 +31,14 @@ HexPointMake(int x, int y){
     
     HexPoint _position;
     CCSprite* _sprite;
+    
+    CGPoint _leftBottom;
+    CGPoint _left;
+    CGPoint _leftTop;
+    CGPoint _rightTop;
+    CGPoint _right;
+    CGPoint _rightBottom;
+    CGPoint _bottom;
 }
 
 @property (nonatomic, assign) float radius;

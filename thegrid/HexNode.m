@@ -35,14 +35,27 @@
         self.sprite = sprite;
         _sprite.position = [self origin];
         _color = ccc4(0, 0, 0, 255);
+        
+        
+        CGPoint origin = [self origin];
+        int x = origin.x;
+        int y = origin.y;
+
+        _leftBottom = ccp(x-_radius/2,y-_halfWidth);
+        _left = ccp(x-_radius,y);
+        _leftTop = ccp(x-_radius/2,y+_halfWidth);
+        _rightTop = ccp(x+_radius/2,y+_halfWidth);
+        _right = ccp(x+_radius,y);
+        _rightBottom = ccp(x+_radius/2,y-_halfWidth);
     }
     return self;
 }
 
 - (CGPoint)origin {
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    CGPoint p = ccp(winSize.width/2 + ((_position.x * _width) + ((_position.y % 2 == 0) ? 0 : _halfWidth)), //y % 2 == 0 is asking 'Is y even?'
-                    winSize.height/2 + (_position.y * _rowHeight));
+    CGPoint p = ccp(winSize.width/2 + (_position.x * _rowHeight),
+                    winSize.height/2 + (_position.y * _width) + ((_position.x % 2 == 0) ? 0 : _halfWidth));
+
     return p;
 }
 
@@ -53,12 +66,18 @@
 - (void)drawHexAt:(CGPoint)origin {
     int x = origin.x;
     int y = origin.y;
-    ccDrawLine(ccp(x-_halfWidth,y-_radius/2), ccp(x-_halfWidth,y+_radius/2));
-    ccDrawLine(ccp(x-_halfWidth,y+_radius/2), ccp(x,y+_radius));
-    ccDrawLine(ccp(x,y+_radius), ccp(x+_halfWidth,y+_radius/2));
-    ccDrawLine(ccp(x+_halfWidth,y+_radius/2),ccp(x+_halfWidth,y-_radius/2));
-    ccDrawLine(ccp(x+_halfWidth,y-_radius/2),ccp(x,y-_radius));
-    ccDrawLine(ccp(x,y-_radius),ccp(x-_halfWidth,y-_radius/2));
+//    ccDrawLine(ccp(x-_halfWidth,y-_radius/2), ccp(x-_halfWidth,y+_radius/2));
+//    ccDrawLine(ccp(x-_halfWidth,y+_radius/2), ccp(x,y+_radius));
+//    ccDrawLine(ccp(x,y+_radius), ccp(x+_halfWidth,y+_radius/2));
+//    ccDrawLine(ccp(x+_halfWidth,y+_radius/2),ccp(x+_halfWidth,y-_radius/2));
+//    ccDrawLine(ccp(x+_halfWidth,y-_radius/2),ccp(x,y-_radius));
+//    ccDrawLine(ccp(x,y-_radius),ccp(x-_halfWidth,y-_radius/2));
+    ccDrawLine(_leftBottom, _left);
+    ccDrawLine(_left, _leftTop);
+    ccDrawLine(_leftTop, _rightTop);
+    ccDrawLine(_rightTop, _right);
+    ccDrawLine(_right, _rightBottom);
+    ccDrawLine(_rightBottom, _leftBottom);
 }
 
 - (BOOL)sameSide:(CGPoint)p1 p2:(CGPoint)p2 a:(CGPoint)a b:(CGPoint)b {
@@ -71,22 +90,22 @@
     CGPoint origin = [self origin];
     int x = origin.x;
     int y = origin.y;
-    if (![self sameSide:touch p2:origin a:ccp(x-_halfWidth,y-_radius/2) b:ccp(x-_halfWidth, y+_radius/2)]) {
+    if (![self sameSide:touch p2:origin a:_leftBottom b:_left]) {
         return NO;
     }
-    if (![self sameSide:touch p2:origin a:ccp(x-_halfWidth,y+_radius/2) b:ccp(x,y+_radius)]) {
+    if (![self sameSide:touch p2:origin a:_left b:_leftTop]) {
         return NO;
     }
-    if (![self sameSide:touch p2:origin a:ccp(x,y+_radius) b:ccp(x+_halfWidth,y+_radius/2)]) {
+    if (![self sameSide:touch p2:origin a:_leftTop b:_rightTop]) {
         return NO;
     }
-    if (![self sameSide:touch p2:origin a:ccp(x+_halfWidth,y+_radius/2) b:ccp(x+_halfWidth,y-_radius/2)]) {
+    if (![self sameSide:touch p2:origin a:_rightTop b:_right]) {
         return NO;
     }
-    if (![self sameSide:touch p2:origin a:ccp(x+_halfWidth,y-_radius/2) b:ccp(x,y-_radius)]) {
+    if (![self sameSide:touch p2:origin a:_right b:_rightBottom]) {
         return NO;
     }
-    if (![self sameSide:touch p2:origin a:ccp(x,y-_radius) b:ccp(x-_halfWidth,y-_radius/2)]) {
+    if (![self sameSide:touch p2:origin a:_rightBottom b:_leftBottom]) {
         return NO;
     }
     return YES;
