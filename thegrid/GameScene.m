@@ -41,6 +41,12 @@
         [self loadSpriteSheetWithName:@"tile-assets"];
         
         _gameLayer = [GameLayer layer];
+        
+        // load background
+        CCSprite *background = [CCSprite spriteWithFile:@"background.png"];
+        background.position = ccp(512, 384);
+        [_gameLayer addChild:background];
+        
         [self addChild:_gameLayer z:1];
         [self createCity];
     }

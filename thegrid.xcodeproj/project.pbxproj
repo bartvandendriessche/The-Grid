@@ -12,6 +12,7 @@
 		AB7BC7DE137584C3008685EE /* PackTextures.sh in Resources */ = {isa = PBXBuildFile; fileRef = AB7BC7DD137584C3008685EE /* PackTextures.sh */; };
 		ABD5372813758E030032A691 /* tile-assets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372613758E030032A691 /* tile-assets.plist */; };
 		ABD5372913758E030032A691 /* tile-assets.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372713758E030032A691 /* tile-assets.pvr.ccz */; };
+		ABD5372C137598B70032A691 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372B137598B70032A691 /* Background.png */; };
 		CCFF00001374941A00EBBC2C /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFFFFFF1374941A00EBBC2C /* CJSONSerializer.m */; };
 		CCFF00051374941B00EBBC2C /* FontLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00041374941B00EBBC2C /* FontLabel.m */; };
 		CCFF00081374941B00EBBC2C /* FontLabelStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00071374941B00EBBC2C /* FontLabelStringDrawing.m */; };
@@ -143,6 +144,7 @@
 		AB7BC7DD137584C3008685EE /* PackTextures.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = thegrid/Scripts/PackTextures.sh; sourceTree = "<group>"; };
 		ABD5372613758E030032A691 /* tile-assets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tile-assets.plist"; path = "Resources/SpriteSheets/tile-assets.plist"; sourceTree = "<group>"; };
 		ABD5372713758E030032A691 /* tile-assets.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "tile-assets.pvr.ccz"; path = "Resources/SpriteSheets/tile-assets.pvr.ccz"; sourceTree = "<group>"; };
+		ABD5372B137598B70032A691 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Art/Background.png; sourceTree = "<group>"; };
 		CCFF00011374941B00EBBC2C /* JSONRepresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONRepresentation.h; path = libs/TouchJSON/JSON/JSONRepresentation.h; sourceTree = "<group>"; };
 		CCFF00031374941B00EBBC2C /* FontLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FontLabel.h; path = libs/FontLabel/FontLabel.h; sourceTree = "<group>"; };
 		CCFF00041374941B00EBBC2C /* FontLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FontLabel.m; path = libs/FontLabel/FontLabel.m; sourceTree = "<group>"; };
@@ -435,6 +437,14 @@
 			name = SpriteSheets;
 			sourceTree = "<group>";
 		};
+		ABD5372A1375988D0032A691 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				ABD5372B137598B70032A691 /* Background.png */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
 		CCFF00021374941B00EBBC2C /* FontLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +569,7 @@
 		CCFFFEC71374941800EBBC2C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ABD5372A1375988D0032A691 /* Sprites */,
 				ABD5372413758DED0032A691 /* SpriteSheets */,
 				CCFF007913757B8700EBBC2C /* Sound */,
 				CCFFFEC81374941800EBBC2C /* Default.png */,
@@ -938,6 +949,7 @@
 				AB7BC7DE137584C3008685EE /* PackTextures.sh in Resources */,
 				ABD5372813758E030032A691 /* tile-assets.plist in Resources */,
 				ABD5372913758E030032A691 /* tile-assets.pvr.ccz in Resources */,
+				ABD5372C137598B70032A691 /* Background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
