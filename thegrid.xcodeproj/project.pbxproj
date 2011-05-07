@@ -21,6 +21,8 @@
 		CCFF004C1374A3F400EBBC2C /* HexNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF004B1374A3F400EBBC2C /* HexNode.m */; };
 		CCFF00571375720900EBBC2C /* TileCity.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00561375720900EBBC2C /* TileCity.m */; };
 		CCFF005A1375721700EBBC2C /* TileEnergy.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00591375721700EBBC2C /* TileEnergy.m */; };
+		CCFF007B13757B9F00EBBC2C /* The Grid main theme day.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCFF007A13757B9F00EBBC2C /* The Grid main theme day.wav */; };
+		CCFF007D13757C4F00EBBC2C /* The grid  Night fall.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCFF007C13757C4F00EBBC2C /* The grid  Night fall.wav */; };
 		CCFFFEB71374941800EBBC2C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB61374941800EBBC2C /* QuartzCore.framework */; };
 		CCFFFEB91374941800EBBC2C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB81374941800EBBC2C /* OpenGLES.framework */; };
 		CCFFFEBB1374941800EBBC2C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEBA1374941800EBBC2C /* OpenAL.framework */; };
@@ -159,6 +161,8 @@
 		CCFF00561375720900EBBC2C /* TileCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileCity.m; sourceTree = "<group>"; };
 		CCFF00581375721600EBBC2C /* TileEnergy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileEnergy.h; sourceTree = "<group>"; };
 		CCFF00591375721700EBBC2C /* TileEnergy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileEnergy.m; sourceTree = "<group>"; };
+		CCFF007A13757B9F00EBBC2C /* The Grid main theme day.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "The Grid main theme day.wav"; path = "Art/Sound/The Grid main theme day.wav"; sourceTree = "<group>"; };
+		CCFF007C13757C4F00EBBC2C /* The grid  Night fall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "The grid  Night fall.wav"; path = "Art/Sound/The grid  Night fall.wav"; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCFFFEB81374941800EBBC2C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -451,6 +455,15 @@
 			name = Grid;
 			sourceTree = "<group>";
 		};
+		CCFF007913757B8700EBBC2C /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				CCFF007C13757C4F00EBBC2C /* The grid  Night fall.wav */,
+				CCFF007A13757B9F00EBBC2C /* The Grid main theme day.wav */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		CCFFFEA71374941800EBBC2C = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +517,7 @@
 		CCFFFEC71374941800EBBC2C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CCFF007913757B8700EBBC2C /* Sound */,
 				CCFFFEC81374941800EBBC2C /* Default.png */,
 				CCFFFECA1374941800EBBC2C /* fps_images.png */,
 				CCFFFECC1374941800EBBC2C /* Icon-72.png */,
@@ -858,6 +872,8 @@
 				CCFFFED51374941800EBBC2C /* Icon.png in Resources */,
 				CCFFFED71374941900EBBC2C /* Icon@2x.png in Resources */,
 				CCFFFEDA1374941900EBBC2C /* iTunesArtwork in Resources */,
+				CCFF007B13757B9F00EBBC2C /* The Grid main theme day.wav in Resources */,
+				CCFF007D13757C4F00EBBC2C /* The grid  Night fall.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

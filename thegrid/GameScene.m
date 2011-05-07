@@ -11,6 +11,7 @@
 #import "HexNode.h"
 #import "TileCity.h"
 #import "TileEnergy.h"
+#import "SimpleAudioEngine.h"
 
 @implementation GameScene
 
@@ -67,6 +68,7 @@
 - (void)onEnter {
     [super onEnter];
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid  Night fall.wav" loop:YES];
 }
 
 - (void)onExit {
