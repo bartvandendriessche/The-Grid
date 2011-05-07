@@ -52,4 +52,19 @@
     return [_energy yield:self environment:environment];
 }
 
+- (void)setEnergy:(EnergyType *)energy {
+    if(energy.sprite) {
+        CCSprite *s = energy.sprite;
+        s.position = self.sprite.position;        
+        self.sprite = s;
+    }
+    [_energy release], _energy = nil;
+    _energy = [energy retain];
+}
+
+- (void)dealloc {
+    [_energy release], _energy = nil;
+    [super dealloc];
+}
+
 @end

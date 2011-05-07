@@ -86,11 +86,11 @@
 #pragma mark -
 #pragma mark Sound
 - (void)playNightTheme {
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid  Night fall.wav" loop:YES];
+    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid  Night fall.wav" loop:YES];
 }
 
 - (void)playDayTheme {
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid main theme day.wav" loop:YES];
+    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid main theme day.wav" loop:YES];
 }
 
 #pragma mark - 
@@ -152,6 +152,9 @@
 - (void)switchEnvironmentToDay {
     _environment.dayTime = YES;
     [self changeEnvironmentWindForce];
+    for (TileCity *c in _cityTiles) {
+        c.population += arc4random() % 6;
+    }
 }
 
 - (void)switchEnvironmentToNight {
@@ -233,14 +236,14 @@
 #pragma mark CCTargetedTouchDelegate
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     NSArray *energyTypes = [NSArray arrayWithObjects:
-                            //[Coal class],
-                            //[Oil class],
-                            //[Gas class],
-                            //[Nuclear class],
+                            [Coal class],
+                            [Oil class],
+                            [Gas class],
+                            [Nuclear class],
                             [Wind class],
-                            //[Water class],
+                            [Water class],
                             [Sun class],
-                            //[Geo class],
+                            [Geo class],
                             nil];
     for (HexNode* h in _hexNodes) {
         if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {

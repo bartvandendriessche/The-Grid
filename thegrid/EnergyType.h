@@ -12,10 +12,13 @@
 @interface EnergyType : NSObject {
     int _price;
     int _baseYield;
+    CCSprite *_sprite;
 }
 
 @property (nonatomic, assign)int price;
 @property (nonatomic, assign)int baseYield;
+
+@property (nonatomic, retain)CCSprite *sprite;
 
 + (id)energyType;
 
