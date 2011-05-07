@@ -11,12 +11,20 @@
 
 @implementation Water
 
+- (id)init {
+    if ((self = [super init])) {
+        self.price = 600;
+        self.baseYield = 50;
+    }
+    return self;
+}
+
 - (void)deplete:(TileEnergy*)energy {
     
 }
 
-- (int)yield:(TileEnergy *)energy {
-    return 0;
+- (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
+    return _baseYield;
 }
 
 @end

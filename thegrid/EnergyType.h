@@ -6,14 +6,20 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "TileEnergy.h"
+#import "Environment.h"
 
 @interface EnergyType : NSObject {
-    
+    int _price;
+    int _baseYield;
 }
 
+@property (nonatomic, assign)int price;
+@property (nonatomic, assign)int baseYield;
+
++ (id)energyType;
+
 - (void)deplete:(TileEnergy *)energy;
-- (int)yield:(TileEnergy*)energy;
+- (int)yield:(TileEnergy *)energy environment:(Environment*)environment;
 
 @end

@@ -11,12 +11,20 @@
 
 @implementation Nuclear
 
+- (id)init {
+    if ((self = [super init])) {
+        self.price = 400;
+        self.baseYield = 60;
+    }
+    return self;
+}
+
 - (void)deplete:(TileEnergy*)energy {
     energy.scoreNuclear-=1;
 }
 
-- (int)yield:(TileEnergy *)energy {
-    return 0;
+- (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
+    return _baseYield;
 }
 
 @end

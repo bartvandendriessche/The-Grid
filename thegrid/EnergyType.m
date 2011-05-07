@@ -10,11 +10,18 @@
 
 @implementation EnergyType
 
+@synthesize price = _price;
+@synthesize baseYield = _baseYield;
+
++ (id)energyType {
+    return [[[self alloc] init] autorelease];
+}
+
 - (void)deplete:(TileEnergy *)energy {
     NSAssert(false,@"You need to subclass EnergyType");
 }
 
-- (int)yield:(TileEnergy *)energy {
+- (int)yield:(TileEnergy *)energy environment:(Environment*)environment{
     NSAssert(false,@"You need to subclass EnergyType");
     return 0;
 }

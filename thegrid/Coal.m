@@ -11,12 +11,20 @@
 
 @implementation Coal
 
+- (id)init {
+    if ((self = [super init])) {
+        self.price = 100;
+        self.baseYield = 40;
+    }
+    return self;
+}
+
 - (void)deplete:(TileEnergy*)energy {
     energy.scoreCoal-=2;
 }
 
-- (int)yield:(TileEnergy *)energy {
-    return 0;
+- (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
+    return _baseYield;
 }
 
 @end

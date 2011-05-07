@@ -42,14 +42,14 @@
     return self;
 }
 
-- (int)yield {
+- (int)yield:(Environment*)environment {
     if (!_energy) {
         return 0;
     }
     
     [_energy deplete:self];
     
-    return [_energy yield:self];
+    return [_energy yield:self environment:environment];
 }
 
 @end

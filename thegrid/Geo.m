@@ -11,12 +11,20 @@
 
 @implementation Geo
 
+- (id)init {
+    if ((self = [super init])) {
+        self.price = 800;
+        self.baseYield = 40;
+    }
+    return self;
+}
+
 - (void)deplete:(TileEnergy*)energy {
     
 }
 
-- (int)yield:(TileEnergy *)energy {
-    return 0;
+- (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
+    return _baseYield;
 }
 
 @end

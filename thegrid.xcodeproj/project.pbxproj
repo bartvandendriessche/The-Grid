@@ -38,6 +38,7 @@
 		CCFF00AB1375974E00EBBC2C /* Water.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00AA1375974E00EBBC2C /* Water.m */; };
 		CCFF00AE1375975800EBBC2C /* Sun.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00AD1375975700EBBC2C /* Sun.m */; };
 		CCFF00B11375976100EBBC2C /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00B01375976000EBBC2C /* Geo.m */; };
+		CCFF00C013759FDD00EBBC2C /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00BF13759FDD00EBBC2C /* Environment.m */; };
 		CCFFFEB71374941800EBBC2C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB61374941800EBBC2C /* QuartzCore.framework */; };
 		CCFFFEB91374941800EBBC2C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB81374941800EBBC2C /* OpenGLES.framework */; };
 		CCFFFEBB1374941800EBBC2C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEBA1374941800EBBC2C /* OpenAL.framework */; };
@@ -204,6 +205,8 @@
 		CCFF00AD1375975700EBBC2C /* Sun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sun.m; sourceTree = "<group>"; };
 		CCFF00AF1375976000EBBC2C /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geo.h; sourceTree = "<group>"; };
 		CCFF00B01375976000EBBC2C /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
+		CCFF00BE13759FDC00EBBC2C /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Environment.h; sourceTree = "<group>"; };
+		CCFF00BF13759FDD00EBBC2C /* Environment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Environment.m; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCFFFEB81374941800EBBC2C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -546,6 +549,8 @@
 				CCFF00AD1375975700EBBC2C /* Sun.m */,
 				CCFF00AF1375976000EBBC2C /* Geo.h */,
 				CCFF00B01375976000EBBC2C /* Geo.m */,
+				CCFF00BE13759FDC00EBBC2C /* Environment.h */,
+				CCFF00BF13759FDD00EBBC2C /* Environment.m */,
 			);
 			name = Grid;
 			sourceTree = "<group>";
@@ -1118,6 +1123,7 @@
 				CCFF00AB1375974E00EBBC2C /* Water.m in Sources */,
 				CCFF00AE1375975800EBBC2C /* Sun.m in Sources */,
 				CCFF00B11375976100EBBC2C /* Geo.m in Sources */,
+				CCFF00C013759FDD00EBBC2C /* Environment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

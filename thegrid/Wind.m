@@ -11,12 +11,20 @@
 
 @implementation Wind
 
+- (id)init {
+    if ((self = [super init])) {
+        self.price = 400;
+        self.baseYield = 20;
+    }
+    return self;
+}
+
 - (void)deplete:(TileEnergy*)energy {
     
 }
 
-- (int)yield:(TileEnergy *)energy {
-    return 0;
+- (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
+    return _baseYield + (_baseYield * environment.windForce / 100);
 }
 
 @end
