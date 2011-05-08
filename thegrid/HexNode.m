@@ -103,13 +103,13 @@
     return YES;
 }
 
-- (void)draw {
+/*- (void)draw {
     glLineWidth(1.0f);
     glEnable(GL_LINE_SMOOTH);
                 
     glColor4ub(_color.r, _color.g, _color.b, 255);
     [self drawHexAt:[self origin]];
-}
+}*/
 
 - (void)dealloc {
     [_sprite release], _sprite = nil;

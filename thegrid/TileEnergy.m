@@ -28,7 +28,7 @@
 }
 
 - (id)initWithRandomPropertiesAt:(HexPoint)point {
-    if ((self = [super initWithRadius:74.0f position:point spriteName:@"city_tile_background.png"])) {
+    if ((self = [super initWithRadius:74.0f position:point spriteName:[NSString stringWithFormat:@"energy_tile_background_%i.png", arc4random() % 3]])) {
         self.scoreCoal = arc4random() % 11;
         self.scoreOil = arc4random() % 11;
         self.scoreGas = arc4random() % 11;
