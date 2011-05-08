@@ -66,16 +66,6 @@
     _color = ccc4(arc4random() % 256, arc4random() % 256, arc4random() % 256, 255);
 }*/
 
-- (void)addOverlayWithSpriteFrameName:(NSString*)name {
-    self.overlay = [CCSprite spriteWithSpriteFrameName:name];
-    [self addChild:_overlay z:1];
-}
-
-- (void)removeOverlay {
-    [self removeChild:_overlay cleanup:YES];
-    _overlay = nil;
-}
-
 - (void)drawHexAt:(CGPoint)origin {
     ccDrawLine(_leftBottom, _left);
     ccDrawLine(_left, _leftTop);

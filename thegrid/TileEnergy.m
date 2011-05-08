@@ -59,9 +59,16 @@
 
 - (void)setEnergy:(EnergyType *)energy {
     if(energy.sprite) {
-        CCSprite *s = energy.sprite;
-        s.position = self.sprite.position;        
-        self.sprite = s;
+        self.overlay = energy.sprite;
+        _overlay.position = _sprite.position;
+        [self addChild:_overlay];
+        
+        [_overlay runAction:[CCSequence actions:
+                             [CCScaleTo actionWithDuration:0.0f scale:0.0f],
+                             [CCDelayTime actionWithDuration:4.0f],
+                             [CCScaleTo actionWithDuration:0.0f scale:1.0f],
+                             [CCFadeIn actionWithDuration:2.0f],
+                             nil]];
     }
     [_energy release], _energy = nil;
     _energy = [energy retain];

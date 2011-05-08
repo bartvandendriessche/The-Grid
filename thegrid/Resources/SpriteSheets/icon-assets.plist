@@ -7,7 +7,7 @@
             <key>icon_coal.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,188},{46,46}}</string>
+                <string>{{0,0},{46,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>icon_gas.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,141},{46,46}}</string>
+                <string>{{47,0},{46,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>icon_geo.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{47,94},{46,46}}</string>
+                <string>{{0,47},{46,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>icon_nuclear.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,94},{46,46}}</string>
+                <string>{{47,47},{46,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>icon_oil.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{47,47},{46,46}}</string>
+                <string>{{0,94},{46,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +72,7 @@
             <key>icon_sun.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,47},{46,46}}</string>
+                <string>{{47,94},{46,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>icon_water.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{47,0},{46,46}}</string>
+                <string>{{0,141},{46,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>icon_wind.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{46,46}}</string>
+                <string>{{47,141},{46,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -116,7 +116,7 @@
             <key>size</key>
             <string>{128,256}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:854ef43bbf57c7291c2f153e6ef1a131$</string>
+            <string>$TexturePacker:SmartUpdate:373335c6cd563cea5b7c1957e591ba67$</string>
             <key>textureFileName</key>
             <string>icon-assets.pvr.ccz</string>
         </dict>

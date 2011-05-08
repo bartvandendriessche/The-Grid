@@ -15,6 +15,7 @@
     if ((self = [super init])) {
         self.price = 200;
         self.baseYield = 50;
+        self.sprite = [CCSprite spriteWithSpriteFrameName:@"energy_tile_overlay_sun.png"];
     }
     return self;
 }

@@ -7,20 +7,7 @@
             <key>city_tile_background.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,133},{146,132}}</string>
-                <key>offset</key>
-                <string>{0,1}</string>
-                <key>rotated</key>
-                <true/>
-                <key>sourceColorRect</key>
-                <string>{{0,1},{146,132}}</string>
-                <key>sourceSize</key>
-                <string>{146,136}</string>
-            </dict>
-            <key>energy_tile_background_0.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{294,0},{146,132}}</string>
+                <string>{{0,0},{146,132}}</string>
                 <key>offset</key>
                 <string>{0,1}</string>
                 <key>rotated</key>
@@ -30,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{146,136}</string>
             </dict>
-            <key>energy_tile_background_1.png</key>
+            <key>energy_tile_background_0.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{147,0},{146,132}}</string>
@@ -43,16 +30,133 @@
                 <key>sourceSize</key>
                 <string>{146,136}</string>
             </dict>
-            <key>energy_tile_background_2.png</key>
+            <key>energy_tile_background_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{146,132}}</string>
+                <string>{{294,0},{146,132}}</string>
                 <key>offset</key>
                 <string>{0,1}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,1},{146,132}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_background_2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{0,133},{146,132}}</string>
+                <key>offset</key>
+                <string>{0,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,1},{146,132}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_overlay_coal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{147,133},{108,96}}</string>
+                <key>offset</key>
+                <string>{-19,19}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,1},{108,96}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_overlay_gas.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{256,133},{106,112}}</string>
+                <key>offset</key>
+                <string>{4,12}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{24,0},{106,112}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_overlay_geo.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{363,133},{122,62}}</string>
+                <key>offset</key>
+                <string>{-5,10}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{7,27},{122,62}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_overlay_nuclear.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{0,266},{126,92}}</string>
+                <key>offset</key>
+                <string>{-3,22}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{7,0},{126,92}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_overlay_oil.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{127,266},{88,100}}</string>
+                <key>offset</key>
+                <string>{-7,18}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{22,0},{88,100}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_overlay_sun.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{216,266},{146,122}}</string>
+                <key>offset</key>
+                <string>{0,7}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{146,122}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_overlay_water.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{363,266},{108,108}}</string>
+                <key>offset</key>
+                <string>{10,2}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{29,12},{108,108}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
+            <key>energy_tile_overlay_wind.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{0,389},{92,98}}</string>
+                <key>offset</key>
+                <string>{-8,11}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{19,8},{92,98}}</string>
                 <key>sourceSize</key>
                 <string>{146,136}</string>
             </dict>
@@ -64,7 +168,7 @@
             <key>size</key>
             <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:e84ec237f4e024f4b5181f715249520e$</string>
+            <string>$TexturePacker:SmartUpdate:9a3220ce41f74e7b6376e9ab2c094d17$</string>
             <key>textureFileName</key>
             <string>tile-assets.pvr.ccz</string>
         </dict>
