@@ -278,7 +278,7 @@
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     for (HexNode* h in _hexNodes) {
         if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {
-            [h randomizeColor];
+            //[h randomizeColor];
             
             if ([h isKindOfClass:[TileEnergy class]]) {
                 [_hudLayer showOptionCircleForEnergyTile:(TileEnergy*)h];

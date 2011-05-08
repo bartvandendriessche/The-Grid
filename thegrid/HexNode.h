@@ -30,7 +30,8 @@ HexPointMake(int x, int y){
     ccColor4B _color;
     
     HexPoint _position;
-    CCSprite* _sprite;
+    CCSprite *_sprite;
+    CCSprite *_overlay;
     
     CGPoint _leftBottom;
     CGPoint _left;
@@ -48,12 +49,15 @@ HexPointMake(int x, int y){
 @property (nonatomic, assign) float width;
 
 @property (nonatomic, assign) HexPoint pos;
-@property (nonatomic, retain) CCSprite* sprite;
+@property (nonatomic, assign) CCSprite *sprite;
+@property (nonatomic, assign) CCSprite *overlay;
 
 + (id)nodeWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName;
 - (id)initWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName;
 - (CGPoint)origin;
-- (void)randomizeColor;
+//- (void)randomizeColor;
+- (void)addOverlayWithSpriteFrameName:(NSString*)name;
+- (void)removeOverlay;
 - (BOOL)isTouchForMe:(CGPoint)touch;
 
 @end
