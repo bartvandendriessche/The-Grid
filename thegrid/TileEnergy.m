@@ -42,6 +42,11 @@
     return self;
 }
 
+- (void)deplete {
+    if (!_energy) return;
+    [_energy deplete:self];
+}
+
 - (int)yield:(Environment*)environment {
     if (!_energy) {
         return 0;

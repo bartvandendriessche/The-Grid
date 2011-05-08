@@ -47,6 +47,7 @@
 		CCFF00C013759FDD00EBBC2C /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFF00BF13759FDD00EBBC2C /* Environment.m */; };
 		CCFF00D11375FB0300EBBC2C /* daytime.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCFF00CF1375FB0300EBBC2C /* daytime.m4a */; };
 		CCFF00D21375FB0300EBBC2C /* nightfall.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCFF00D01375FB0300EBBC2C /* nightfall.m4a */; };
+		CCFF00EE1376A9B100EBBC2C /* construction.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCFF00ED1376A9B100EBBC2C /* construction.m4a */; };
 		CCFFFEB71374941800EBBC2C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB61374941800EBBC2C /* QuartzCore.framework */; };
 		CCFFFEB91374941800EBBC2C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB81374941800EBBC2C /* OpenGLES.framework */; };
 		CCFFFEBB1374941800EBBC2C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEBA1374941800EBBC2C /* OpenAL.framework */; };
@@ -225,6 +226,7 @@
 		CCFF00C21375B52100EBBC2C /* EnergyTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyTypes.h; sourceTree = "<group>"; };
 		CCFF00CF1375FB0300EBBC2C /* daytime.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = daytime.m4a; path = Art/Sound/daytime.m4a; sourceTree = "<group>"; };
 		CCFF00D01375FB0300EBBC2C /* nightfall.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = nightfall.m4a; path = Art/Sound/nightfall.m4a; sourceTree = "<group>"; };
+		CCFF00ED1376A9B100EBBC2C /* construction.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = construction.m4a; path = Art/Sound/construction.m4a; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCFFFEB81374941800EBBC2C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -586,6 +588,7 @@
 		CCFF007913757B8700EBBC2C /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				CCFF00ED1376A9B100EBBC2C /* construction.m4a */,
 				CCFF00CF1375FB0300EBBC2C /* daytime.m4a */,
 				CCFF00D01375FB0300EBBC2C /* nightfall.m4a */,
 			);
@@ -1035,6 +1038,7 @@
 				ABCEA83E1376866100821EFB /* hud_people.png in Resources */,
 				CCFF00D11375FB0300EBBC2C /* daytime.m4a in Resources */,
 				CCFF00D21375FB0300EBBC2C /* nightfall.m4a in Resources */,
+				CCFF00EE1376A9B100EBBC2C /* construction.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,9 +11,10 @@
 
 @implementation Environment
 
-@synthesize hour = _hour;
 @synthesize windForce = _windForce;
 @synthesize cloudiness = _cloudiness;
+@synthesize hour = _hour;
+@synthesize day = _day;
 
 + (id)environment {
     return [[[Environment alloc] init] autorelease];
@@ -22,6 +23,7 @@
 - (id)init {
     if((self = [super init])) {
         self.hour = 20;
+        self.day = 0;
         self.windForce = (arc4random() % 10);
         self.cloudiness = (arc4random() % 10);
     }

@@ -24,6 +24,10 @@
 }
 
 - (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
+    if (!energy.scoreGas <= 0) {
+        CCLOG(@"No longer yielding energy from gas at %d,%d", energy.pos.x, energy.pos.y);
+        return 0;
+    }
     return _baseYield;
 }
 

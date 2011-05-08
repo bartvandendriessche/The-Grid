@@ -151,10 +151,17 @@
     [self updateMayorState];
 }
 
+- (void)updateTiles {
+    for (TileEnergy *tile in _energyTiles) {
+        [tile deplete];
+    }
+}
+
 - (void)incrementTime {
     int nextHour = _environment.hour + 1;
     if (nextHour > 23) {
         nextHour = 0;
+        _environment.day++;
     }
     _environment.hour = nextHour;
 }
@@ -170,13 +177,13 @@
     }
     
     if ([_environment dayTime]) { // population grows during the day
-        for (TileCity *c in _cityTiles) {
-            c.population += (c.population * (arc4random() % 10) / 100);
-            c.population += arc4random() % 2;
+        for (TileCity *c in _cityTiles) {            
+            c.population += arc4random() % (2 + (_environment.day / 2));
         }
     }
     
     [self updateChaosState];
+    [self updateTiles];
     CCLOG(@"It is now %d o'clock. You require %d energy, and you're generating %d", _environment.hour, [self requiredEnergy], [self yieldedEnergy]);
 }
 

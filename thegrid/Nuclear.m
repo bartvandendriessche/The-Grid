@@ -24,6 +24,10 @@
 }
 
 - (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
+    if (energy.scoreNuclear <= 0) {
+        CCLOG(@"No longer yielding energy from nuclear at %d,%d", energy.pos.x, energy.pos.y);
+        return 0;
+    }
     return _baseYield;
 }
 

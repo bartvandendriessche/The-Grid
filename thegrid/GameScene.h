@@ -40,6 +40,8 @@
 - (void)startNight;
 
 - (int)energySurplus;
+- (int)requiredEnergy;
+- (int)yieldedEnergy;
 - (void)updateMayorState;
 
 @end
