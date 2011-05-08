@@ -33,5 +33,7 @@ typedef enum {
 + (id)iconWithSpriteFrameName:(NSString*)name andType:(HUDIconType)iconType;
 
 - (id)initWithSpriteFrameName:(NSString*)name andType:(HUDIconType)iconType;
+- (BOOL)isTouchForMe:(CGPoint)touchLocation;
+- (NSString*)energyTypeDescription;
 
 @end

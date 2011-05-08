@@ -19,7 +19,7 @@
 
 - (id)init {
     if ((self = [super init])) {
-        CCLOG(@"GameLayer initialized, DRAW SUM SHEPS !");
+        _handlingTouches = NO;
         
         // Create sprite-icons
         HUDIcon *coalIcon = [HUDIcon iconWithSpriteFrameName:@"icon_coal.png" andType:kIconTypeBuildCoal];
@@ -47,7 +47,6 @@
         // add icons to the option circle
         for (int i = 0; i < [_buildIcons count]; i++) {
             HUDIcon *currentIcon = (HUDIcon*)[_buildIcons objectAtIndex:i];
-            currentIcon.scale = 0.0f;
             currentIcon.position = ccp(cos(CC_DEGREES_TO_RADIANS(i * 45)) * 80 + _optionCircle.contentSize.width / 2, 
                                        sin(CC_DEGREES_TO_RADIANS(i * 45)) * 80 + _optionCircle.contentSize.height / 2);
             [_optionCircle addChild:currentIcon];
@@ -55,6 +54,9 @@
     }
     return self;
 }
+
+#pragma mark -
+#pragma mark Animations
 
 - (void)showIcons {
     for (int i = 0; i < [_buildIcons count]; i++) {
@@ -75,34 +77,78 @@
     }
 }
 
-- (void)showOptionCircleOnPosition:(CGPoint)position forBuild:(BOOL)build {
-    CCSequence *sequence = [CCSequence actions:
-                            [CCCallFunc actionWithTarget:self selector:@selector(hideIcons)],
-                            [CCScaleTo actionWithDuration:0.0f scale:0.0f],
-                            [CCMoveTo actionWithDuration:0.0f position:position],
-                            [CCScaleTo actionWithDuration:0.2f scale:1.1f],
-                            [CCCallFuncN actionWithTarget:self selector:@selector(showIcons)],
-                            [CCScaleTo actionWithDuration:0.05f scale:1.0f],
-                            nil];
-    
-    _optionCircle.visible = TRUE;
-    [_optionCircle runAction:sequence];
+- (void)makeOptionCircleInvisible {
+    _optionCircle.visible = NO;
+}
+
+
+- (void)makeOptionCircleVisible {
+    _optionCircle.visible = YES;
 }
 
 - (void)showOptionCircleForEnergyTile:(TileEnergy*)tile {
+    _handlingTouches = YES;
     self.activeTile = tile;
     CCSequence *sequence = [CCSequence actions:
                             [CCCallFunc actionWithTarget:self selector:@selector(hideIcons)],
                             [CCScaleTo actionWithDuration:0.0f scale:0.0f],
+                            [CCCallFunc actionWithTarget:self selector:@selector(makeOptionCircleVisible)],
                             [CCMoveTo actionWithDuration:0.0f position:tile.sprite.position],
                             [CCScaleTo actionWithDuration:0.2f scale:1.1f],
                             [CCCallFuncN actionWithTarget:self selector:@selector(showIcons)],
                             [CCScaleTo actionWithDuration:0.05f scale:1.0f],
                             nil];
-    
-    _optionCircle.visible = TRUE;
+
     [_optionCircle runAction:sequence];
 }
+
+- (void)hideOptionCircle {
+    _handlingTouches = NO;
+    [_optionCircle runAction:[CCSequence actions:
+                              [CCScaleTo actionWithDuration:0.2f scale:0.0f],
+                              [CCCallFunc actionWithTarget:self selector:@selector(makeOptionCircleInvisible)],
+                              nil]];
+}
+
+#pragma mark -
+#pragma mark CCTargetedTouchDelegate
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (!_handlingTouches) return NO;
+
+    CGPoint point = [self convertTouchToNodeSpace:touch];
+    CGPoint circleOrigin = ccpSub(_optionCircle.position, ccp([_optionCircle boundingBox].size.width / 2,[_optionCircle boundingBox].size.height / 2));
+    CGPoint relative = ccpSub(point, circleOrigin);
+    for (HUDIcon *icon in _buildIcons) {
+        if ([icon isTouchForMe:relative]) {
+            CCLOG(@"Trying to build a %@ at %d,%d", [icon energyTypeDescription] ,_activeTile.pos.x,_activeTile.pos.y);
+            return YES;
+        }
+    }
+    
+    if (CGRectContainsPoint([_optionCircle boundingBox], point)) {
+        [self hideOptionCircle];
+        return YES;
+    }
+    
+    return NO;
+}
+
+
+#pragma mark -
+#pragma mark Overriden
+
+- (void)onEnter {
+    [super onEnter];
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+- (void)onExit {
+    [super onExit];
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+}
+
+#pragma mark -
+#pragma mark Memory management
 
 - (void) dealloc {
     [_activeTile release], _activeTile = nil;
