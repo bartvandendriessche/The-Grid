@@ -25,7 +25,12 @@
     CCSprite *_optionCircle;
 }
 
-@property (nonatomic,retain) TileEnergy* activeTile;
+@property (nonatomic, retain) TileEnergy *activeTile;
+@property (nonatomic, readonly) HUDStatusDisplay *money;
+@property (nonatomic, readonly) HUDStatusDisplay *mayor;
+@property (nonatomic, readonly) HUDStatusDisplay *energy;
+@property (nonatomic, readonly) HUDStatusDisplay *people;
+
 + (id)layer;
 
 - (id)init;

@@ -11,6 +11,8 @@
 		AB0A2B091375747A0072B21C /* HUDIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2B081375747A0072B21C /* HUDIcon.m */; };
 		AB7BC7DE137584C3008685EE /* PackTextures.sh in Resources */ = {isa = PBXBuildFile; fileRef = AB7BC7DD137584C3008685EE /* PackTextures.sh */; };
 		AB7BDFCE13768E2B00E71118 /* HUDStatusDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7BDFCD13768E2B00E71118 /* HUDStatusDisplay.m */; };
+		AB7BDFDB1376AF7300E71118 /* freebooter-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = AB7BDFD91376AF7300E71118 /* freebooter-hd.fnt */; };
+		AB7BDFDC1376AF7300E71118 /* freebooter-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7BDFDA1376AF7300E71118 /* freebooter-hd.png */; };
 		ABCEA8251375B95600821EFB /* icon-assets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8231375B95600821EFB /* icon-assets.plist */; };
 		ABCEA8261375B95600821EFB /* icon-assets.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */; };
 		ABCEA8291375C01800821EFB /* OptionWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8281375C01800821EFB /* OptionWheel.png */; };
@@ -169,6 +171,8 @@
 		AB7BC7DD137584C3008685EE /* PackTextures.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = thegrid/Scripts/PackTextures.sh; sourceTree = "<group>"; };
 		AB7BDFCC13768E2B00E71118 /* HUDStatusDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDStatusDisplay.h; sourceTree = "<group>"; };
 		AB7BDFCD13768E2B00E71118 /* HUDStatusDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDStatusDisplay.m; sourceTree = "<group>"; };
+		AB7BDFD91376AF7300E71118 /* freebooter-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "freebooter-hd.fnt"; path = "Resources/Fonts/freebooter-hd.fnt"; sourceTree = "<group>"; };
+		AB7BDFDA1376AF7300E71118 /* freebooter-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "freebooter-hd.png"; path = "Resources/Fonts/freebooter-hd.png"; sourceTree = "<group>"; };
 		ABCEA8231375B95600821EFB /* icon-assets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "icon-assets.plist"; path = "Resources/SpriteSheets/icon-assets.plist"; sourceTree = "<group>"; };
 		ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "icon-assets.pvr.ccz"; path = "Resources/SpriteSheets/icon-assets.pvr.ccz"; sourceTree = "<group>"; };
 		ABCEA8281375C01800821EFB /* OptionWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OptionWheel.png; path = Art/OptionWheel.png; sourceTree = "<group>"; };
@@ -492,6 +496,15 @@
 			name = Scripts;
 			sourceTree = "<group>";
 		};
+		AB7BDFD01376AA5000E71118 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				AB7BDFD91376AF7300E71118 /* freebooter-hd.fnt */,
+				AB7BDFDA1376AF7300E71118 /* freebooter-hd.png */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
 		ABD5372413758DED0032A691 /* SpriteSheets */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,6 +681,7 @@
 		CCFFFEC71374941800EBBC2C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AB7BDFD01376AA5000E71118 /* Font */,
 				ABD5372A1375988D0032A691 /* Sprites */,
 				ABD5372413758DED0032A691 /* SpriteSheets */,
 				CCFF007913757B8700EBBC2C /* Sound */,
@@ -1056,6 +1070,8 @@
 				ABCEA83E1376866100821EFB /* hud_people.png in Resources */,
 				CCFF00D11375FB0300EBBC2C /* daytime.m4a in Resources */,
 				CCFF00D21375FB0300EBBC2C /* nightfall.m4a in Resources */,
+				AB7BDFDB1376AF7300E71118 /* freebooter-hd.fnt in Resources */,
+				AB7BDFDC1376AF7300E71118 /* freebooter-hd.png in Resources */,
 				CCFF00EE1376A9B100EBBC2C /* construction.m4a in Resources */,
 				CCFF010B1376B05700EBBC2C /* alert.m4a in Resources */,
 				CCFF010C1376B05700EBBC2C /* click.m4a in Resources */,

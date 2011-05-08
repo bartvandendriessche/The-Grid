@@ -13,6 +13,10 @@
 @implementation HUDLayer
 
 @synthesize activeTile = _activeTile;
+@synthesize money = _money;
+@synthesize mayor = _mayor;
+@synthesize energy = _energy;
+@synthesize people = _people;
 
 + (id)layer {
     return [[[HUDLayer alloc] init] autorelease];
@@ -49,6 +53,7 @@
         
         _money = [HUDStatusDisplay spriteWithFile:@"hud_money.png"];
         _money.position = ccp(winSize.width - _money.contentSize.width / 2 - 20, winSize.height - _money.contentSize.height / 2 - 20);
+        _money.label.position = ccp(_money.label.position.x, _money.label.position.y - 5);
         [self addChild:_money];
         
         _mayor = [HUDStatusDisplay spriteWithFile:@"hud_mayor.png"];
@@ -57,6 +62,7 @@
         
         _energy = [HUDStatusDisplay spriteWithFile:@"hud_energy.png"];
         _energy.position = ccp(_mayor.position.x, _mayor.position.y - _mayor.contentSize.height / 2 - _energy.contentSize.height / 2  - 10);
+        _energy.label.position = ccp(_energy.label.position.x, _energy.label.position.y - 5);
         [self addChild:_energy];
         
         _people = [HUDStatusDisplay spriteWithFile:@"hud_people.png"];

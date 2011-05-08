@@ -20,7 +20,7 @@
 }
 
 - (void)deplete:(TileEnergy*)energy {
-    energy.scoreGas-=3;
+    energy.scoreGas -= 3;
 }
 
 - (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
