@@ -16,6 +16,9 @@
 - (id)initWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName {
     if ((self = [super initWithRadius:radius position:position spriteName:spriteName])) {
         _population = 0;
+        self.overlay = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"city_tile_overlay_%i.png", arc4random() % 6]];
+        _overlay.position = ccp(self.sprite.position.x, self.sprite.position.y + 20);
+        [self addChild:_overlay];
     }
     return self;
 }
