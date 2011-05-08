@@ -106,7 +106,7 @@
         [self addChild:_dayNightCycleLayer z:1];
         
         _hudLayer = [HUDLayer layer];
-        [self addChild:_hudLayer];
+        [self addChild:_hudLayer z:2];
         _spareEnergyTiles = [[self createSpareEnergyTiles] retain];
     }
     return self;
@@ -276,23 +276,12 @@
 #pragma mark -
 #pragma mark CCTargetedTouchDelegate
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    NSArray *energyTypes = [NSArray arrayWithObjects:
-                            [Coal class],
-                            [Oil class],
-                            [Gas class],
-                            [Nuclear class],
-                            [Wind class],
-                            [Water class],
-                            [Sun class],
-                            [Geo class],
-                            nil];
     for (HexNode* h in _hexNodes) {
         if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {
             [h randomizeColor];
             
             if ([h isKindOfClass:[TileEnergy class]]) {
-                [_hudLayer showOptionCircleOnPosition:h.sprite.position forBuild:YES];
-                //((TileEnergy*)h).energy = [[energyTypes objectAtIndex:(arc4random() % [energyTypes count])] energyType];
+                [_hudLayer showOptionCircleForEnergyTile:(TileEnergy*)h];
             }
         }
     }

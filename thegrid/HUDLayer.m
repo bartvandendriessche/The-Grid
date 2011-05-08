@@ -7,8 +7,11 @@
 //
 
 #import "HUDLayer.h"
+#import "TileEnergy.h"
 
 @implementation HUDLayer
+
+@synthesize activeTile = _activeTile;
 
 + (id)layer {
     return [[[HUDLayer alloc] init] autorelease];
@@ -84,10 +87,25 @@
     
     _optionCircle.visible = TRUE;
     [_optionCircle runAction:sequence];
+}
+
+- (void)showOptionCircleForEnergyTile:(TileEnergy*)tile {
+    self.activeTile = tile;
+    CCSequence *sequence = [CCSequence actions:
+                            [CCCallFunc actionWithTarget:self selector:@selector(hideIcons)],
+                            [CCScaleTo actionWithDuration:0.0f scale:0.0f],
+                            [CCMoveTo actionWithDuration:0.0f position:tile.sprite.position],
+                            [CCScaleTo actionWithDuration:0.2f scale:1.1f],
+                            [CCCallFuncN actionWithTarget:self selector:@selector(showIcons)],
+                            [CCScaleTo actionWithDuration:0.05f scale:1.0f],
+                            nil];
     
+    _optionCircle.visible = TRUE;
+    [_optionCircle runAction:sequence];
 }
 
 - (void) dealloc {
+    [_activeTile release], _activeTile = nil;
     [_buildIcons release], _buildIcons = nil;
     [super dealloc];
 }
