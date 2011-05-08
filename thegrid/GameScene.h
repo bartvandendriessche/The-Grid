@@ -34,5 +34,7 @@
 - (void)addHexNode:(HexNode*)hexNode;
 - (void)addCityTile:(TileCity*)city;
 - (void)addEnergyTile:(TileEnergy*)energy;
+- (void)startDay;
+- (void)startNight;
 
 @end

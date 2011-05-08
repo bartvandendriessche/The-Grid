@@ -7,30 +7,17 @@
             <key>city_tile_background.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{146,132}}</string>
+                <string>{{0,133},{146,132}}</string>
                 <key>offset</key>
                 <string>{0,1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,1},{146,132}}</string>
                 <key>sourceSize</key>
                 <string>{146,136}</string>
             </dict>
             <key>energy_tile_background_0.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{147,0},{146,132}}</string>
-                <key>offset</key>
-                <string>{0,1}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,1},{146,132}}</string>
-                <key>sourceSize</key>
-                <string>{146,136}</string>
-            </dict>
-            <key>energy_tile_background_1.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{294,0},{146,132}}</string>
@@ -43,10 +30,23 @@
                 <key>sourceSize</key>
                 <string>{146,136}</string>
             </dict>
+            <key>energy_tile_background_1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{147,0},{146,132}}</string>
+                <key>offset</key>
+                <string>{0,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,1},{146,132}}</string>
+                <key>sourceSize</key>
+                <string>{146,136}</string>
+            </dict>
             <key>energy_tile_background_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,133},{146,132}}</string>
+                <string>{{0,0},{146,132}}</string>
                 <key>offset</key>
                 <string>{0,1}</string>
                 <key>rotated</key>
@@ -64,7 +64,7 @@
             <key>size</key>
             <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:4d2acff73a7f2d5af00ab4f87551dc86$</string>
+            <string>$TexturePacker:SmartUpdate:e84ec237f4e024f4b5181f715249520e$</string>
             <key>textureFileName</key>
             <string>tile-assets.pvr.ccz</string>
         </dict>

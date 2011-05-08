@@ -11,7 +11,7 @@
 
 @implementation Environment
 
-@synthesize dayTime = _dayTime;
+@synthesize hour = _hour;
 @synthesize windForce = _windForce;
 @synthesize cloudiness = _cloudiness;
 
@@ -21,11 +21,15 @@
 
 - (id)init {
     if((self = [super init])) {
-        self.dayTime = false;
+        self.hour = 20;
         self.windForce = (arc4random() % 10);
         self.cloudiness = (arc4random() % 10);
     }
     return self;
+}
+
+- (BOOL)dayTime {
+    return 7 <= _hour && _hour <= 19;
 }
 
 @end

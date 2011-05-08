@@ -22,7 +22,8 @@
 
 - (int)requiredEnergy:(Environment*)environment {
     int required = _population + ((_population / 10) * (arc4random() % 10));
-    return environment.dayTime ? required : required / 4;
+    
+    return ([environment dayTime]) ? required : required / 4;
 }
 
 @end

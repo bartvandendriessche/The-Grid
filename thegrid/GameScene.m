@@ -99,8 +99,6 @@
         [self createEnergyTiles];
         [self createCity];
         
-        [self scheduleUpdate];
-        
         _environment = [[Environment environment] retain];
         _dayNightCycleLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 128)];
         [self addChild:_dayNightCycleLayer z:1];
@@ -108,6 +106,9 @@
         _hudLayer = [HUDLayer layer];
         [self addChild:_hudLayer z:2];
         _spareEnergyTiles = [[self createSpareEnergyTiles] retain];
+        
+        [self scheduleUpdate];
+        [self schedule:@selector(hourTick:) interval:2];
     }
     return self;
 }
@@ -124,12 +125,41 @@
 
 #pragma mark - 
 #pragma mark Gameloop
+
+- (void)incrementTime {
+    int nextHour = _environment.hour + 1;
+    if (nextHour > 23) {
+        nextHour = 0;
+    }
+    _environment.hour = nextHour;
+}
+
+- (void)hourTick:(ccTime)dt {
+    [self incrementTime];
+    if (_environment.hour == 7) {
+        [self startDay];
+    }
+    
+    if (_environment.hour == 19) {
+        [self startNight];
+    }
+    
+    if ([_environment dayTime]) { // population grows during the day
+        for (TileCity *c in _cityTiles) {
+            c.population += arc4random() % 2;
+        }
+    }
+    
+    CCLOG(@"It is now %d o'clock. You require %d energy, and you're generating %d", _environment.hour, [self requiredEnergy], [self yieldedEnergy]);
+}
+
 - (void)update:(ccTime)dt {
-    CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
+    //CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
 }
 
 - (int)requiredEnergy {
     int total = 0;
+    CCLOG(@"Required energy during %@", ([_environment dayTime]) ? @"day" : @"night");
     for (TileCity *c in _cityTiles) {
         total += [c requiredEnergy:_environment];
     }
@@ -142,6 +172,18 @@
         yielded += [e yield:_environment];
     }
     return yielded;
+}
+
+- (int)energySurplusOrDeficit {
+    return [self requiredEnergy] - [self yieldedEnergy];
+}
+
+- (int)population {
+    int population = 0;
+    for (TileCity *city in _cityTiles) {
+        population += city.population;
+    }
+    return population;
 }
 
 - (void)changeEnvironmentWindForce {
@@ -179,34 +221,35 @@
 }
 
 - (void)switchEnvironmentToDay {
-    _environment.dayTime = YES;
     [self changeEnvironmentWindForce];
-    for (TileCity *c in _cityTiles) {
-        c.population += arc4random() % 6;
-    }
 }
 
 - (void)switchEnvironmentToNight {
-    _environment.dayTime = NO;
     [self changeEnvironmentWindForce];
 }
 
 - (CCFiniteTimeAction*)dayCycle {
     return [CCSequence actions:
-            [CCFadeTo actionWithDuration:10 opacity:0],
+            [CCFadeTo actionWithDuration:5 opacity:0],
             [CCCallFunc actionWithTarget:self selector:@selector(playDayTheme)],
             [CCCallFunc actionWithTarget:self selector:@selector(switchEnvironmentToDay)],
-            [CCDelayTime actionWithDuration:DURATION_DAY],
             nil];
 }
 
 - (CCFiniteTimeAction*)nightCycle {
     return [CCSequence actions:
-            [CCFadeTo actionWithDuration:10 opacity:128],
+            [CCFadeTo actionWithDuration:5 opacity:128],
             [CCCallFunc actionWithTarget:self selector:@selector(playNightTheme)],
             [CCCallFunc actionWithTarget:self selector:@selector(switchEnvironmentToNight)],
-            [CCDelayTime actionWithDuration:DURATION_NIGHT],
             nil];
+}
+
+- (void)startDay {
+    [_dayNightCycleLayer runAction:[self dayCycle]];
+}
+
+- (void)startNight {
+    [_dayNightCycleLayer runAction:[self nightCycle]];
 }
 
 - (void)startDayNightCycle {
@@ -260,8 +303,8 @@
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:NO];
     [self runAction:[CCSequence actions:
                      [CCCallFunc actionWithTarget:self selector:@selector(playNightTheme)],
-                     [CCDelayTime actionWithDuration:DURATION_NIGHT],
-                     [CCCallFunc actionWithTarget:self selector:@selector(startDayNightCycle)],
+                     //[CCDelayTime actionWithDuration:DURATION_NIGHT],
+                     //[CCCallFunc actionWithTarget:self selector:@selector(startDayNightCycle)],
                      nil]];
     //[[SimpleAudioEngine sharedEngine] preloadEffect:@"The Grid  Night fall.wav"];
     //[[SimpleAudioEngine sharedEngine] preloadEffect:@"The Grid main theme day.wav"];
