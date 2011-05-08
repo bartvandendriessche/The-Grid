@@ -18,6 +18,7 @@
 @synthesize pos = _position;
 
 @synthesize sprite = _sprite;
+@synthesize overlay = _overlay;
 
 + (id)nodeWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName {
     return [[[self alloc] initWithRadius:radius position:position spriteName:spriteName] autorelease];
@@ -61,8 +62,18 @@
     return p;
 }
 
-- (void)randomizeColor {
+/*- (void)randomizeColor {
     _color = ccc4(arc4random() % 256, arc4random() % 256, arc4random() % 256, 255);
+}*/
+
+- (void)addOverlayWithSpriteFrameName:(NSString*)name {
+    self.overlay = [CCSprite spriteWithSpriteFrameName:name];
+    [self addChild:_overlay z:1];
+}
+
+- (void)removeOverlay {
+    [self removeChild:_overlay cleanup:YES];
+    _overlay = nil;
 }
 
 - (void)drawHexAt:(CGPoint)origin {
@@ -112,7 +123,6 @@
 }*/
 
 - (void)dealloc {
-    [_sprite release], _sprite = nil;
     [super dealloc];
 }
 
