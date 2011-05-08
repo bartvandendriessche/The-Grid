@@ -165,6 +165,7 @@
     }
     
     [self updateMayorState];
+    [self endGameIfNecessary];
 }
 
 - (void)updateTiles {
@@ -225,7 +226,7 @@
 }
 
 - (int)energySurplus {
-    return [self requiredEnergy] - [self yieldedEnergy];
+    return [self yieldedEnergy] - [self requiredEnergy];
 }
 
 - (int)population {
@@ -299,11 +300,16 @@
 }
 
 - (void)endGameIfNecessary {
-    if (_environment.day >= 10) {
+    if (!_environment.dayTime && _environment.day >= 10) {
         CCLOG(@"Congratulations! you made it to day 10");
         [[SimpleAudioEngine sharedEngine] playEffect:@"win.m4a"];
         [self pause];
-    }    
+    }
+    
+    if(_chaos > 15) {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"loss.m4a"];
+        [self pause];
+    }
 }
 
 - (void)startNight {
@@ -364,8 +370,7 @@
                      [CCCallFunc actionWithTarget:self selector:@selector(playNightTheme)],
                      //[CCDelayTime actionWithDuration:DURATION_NIGHT],
                      //[CCCallFunc actionWithTarget:self selector:@selector(startDayNightCycle)],
-                     nil]];
-    
+                     nil]];    
     _chaos = 0;
 }
 
