@@ -20,7 +20,11 @@
 }
 
 - (void)deplete:(TileEnergy*)energy {
+    if (energy.scoreCoal <= 0) return;
     energy.scoreCoal-=2;
+    if (energy.scoreCoal <= 0) {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"powerdown.m4a"];
+    }
 }
 
 - (int)yield:(TileEnergy *)energy environment:(Environment*)environment {

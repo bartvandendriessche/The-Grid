@@ -44,6 +44,8 @@
 - (int)yieldedEnergy;
 - (void)updateMayorState;
 
+- (void)endGameIfNecessary;
+
 - (void)pause;
 - (void)resume;
 

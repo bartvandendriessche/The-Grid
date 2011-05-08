@@ -55,6 +55,7 @@
 		CCFF010D1376B05700EBBC2C /* powerdown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCFF01081376B05700EBBC2C /* powerdown.m4a */; };
 		CCFF010E1376B05700EBBC2C /* powerup.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCFF01091376B05700EBBC2C /* powerup.m4a */; };
 		CCFF010F1376B05700EBBC2C /* win.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCFF010A1376B05700EBBC2C /* win.m4a */; };
+		CCFF01111376B93C00EBBC2C /* lose.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CCFF01101376B93C00EBBC2C /* lose.m4a */; };
 		CCFFFEB71374941800EBBC2C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB61374941800EBBC2C /* QuartzCore.framework */; };
 		CCFFFEB91374941800EBBC2C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEB81374941800EBBC2C /* OpenGLES.framework */; };
 		CCFFFEBB1374941800EBBC2C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFFFEBA1374941800EBBC2C /* OpenAL.framework */; };
@@ -241,6 +242,7 @@
 		CCFF01081376B05700EBBC2C /* powerdown.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = powerdown.m4a; path = Art/Sound/powerdown.m4a; sourceTree = "<group>"; };
 		CCFF01091376B05700EBBC2C /* powerup.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = powerup.m4a; path = Art/Sound/powerup.m4a; sourceTree = "<group>"; };
 		CCFF010A1376B05700EBBC2C /* win.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = win.m4a; path = Art/Sound/win.m4a; sourceTree = "<group>"; };
+		CCFF01101376B93C00EBBC2C /* lose.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = lose.m4a; path = Art/Sound/lose.m4a; sourceTree = "<group>"; };
 		CCFFFEB21374941800EBBC2C /* thegrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thegrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFFFEB61374941800EBBC2C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCFFFEB81374941800EBBC2C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -611,6 +613,7 @@
 		CCFF007913757B8700EBBC2C /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				CCFF01101376B93C00EBBC2C /* lose.m4a */,
 				CCFF01061376B05700EBBC2C /* alert.m4a */,
 				CCFF01071376B05700EBBC2C /* click.m4a */,
 				CCFF01081376B05700EBBC2C /* powerdown.m4a */,
@@ -1075,6 +1078,7 @@
 				CCFF010D1376B05700EBBC2C /* powerdown.m4a in Resources */,
 				CCFF010E1376B05700EBBC2C /* powerup.m4a in Resources */,
 				CCFF010F1376B05700EBBC2C /* win.m4a in Resources */,
+				CCFF01111376B93C00EBBC2C /* lose.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

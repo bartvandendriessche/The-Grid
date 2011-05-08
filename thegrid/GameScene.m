@@ -84,10 +84,16 @@
 
 - (void)preloadSounds {
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"win.m4a"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"lose.m4a"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"powerup.m4a"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"powerdown.m4a"];
 }
 
 - (void)unloadSounds {
     [[SimpleAudioEngine sharedEngine] unloadEffect:@"win.m4a"];
+    [[SimpleAudioEngine sharedEngine] unloadEffect:@"lose.m4a"];
+    [[SimpleAudioEngine sharedEngine] unloadEffect:@"powerup.m4a"];
+    [[SimpleAudioEngine sharedEngine] unloadEffect:@"powerdown.m4a"];
 }
 
 - (id)init {
@@ -138,10 +144,12 @@
 
 - (void)pause {
     [self pauseSchedulerAndActions];
+    [_dayNightCycleLayer pauseSchedulerAndActions];
 }
 
 - (void)resume {
     [self resumeSchedulerAndActions];
+    [_dayNightCycleLayer resumeSchedulerAndActions];
 }
 
 - (void)updateMayorState {
@@ -165,6 +173,7 @@
     }
     
     [self updateMayorState];
+    [self endGameIfNecessary];
 }
 
 - (void)updateTiles {
@@ -200,7 +209,7 @@
     
     [self updateChaosState];
     [self updateTiles];
-    CCLOG(@"It is now %d o'clock. You require %d energy, and you're generating %d", _environment.hour, [self requiredEnergy], [self yieldedEnergy]);
+    CCLOG(@"It is now day %d, %d o'clock. You require %d energy, and you're generating %d", _environment.day, _environment.hour, [self requiredEnergy], [self yieldedEnergy]);
 }
 
 - (void)update:(ccTime)dt {
@@ -225,7 +234,7 @@
 }
 
 - (int)energySurplus {
-    return [self requiredEnergy] - [self yieldedEnergy];
+    return [self yieldedEnergy] - [self requiredEnergy];
 }
 
 - (int)population {
@@ -299,11 +308,18 @@
 }
 
 - (void)endGameIfNecessary {
-    if (_environment.day >= 10) {
+    if (!_environment.dayTime && _environment.day >= 10) {
         CCLOG(@"Congratulations! you made it to day 10");
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] playEffect:@"win.m4a"];
         [self pause];
-    }    
+    }
+    
+    if(_chaos >= 8) {
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"lose.m4a"];
+        [self pause];
+    }
 }
 
 - (void)startNight {
@@ -364,8 +380,7 @@
                      [CCCallFunc actionWithTarget:self selector:@selector(playNightTheme)],
                      //[CCDelayTime actionWithDuration:DURATION_NIGHT],
                      //[CCCallFunc actionWithTarget:self selector:@selector(startDayNightCycle)],
-                     nil]];
-    
+                     nil]];    
     _chaos = 0;
 }
 
