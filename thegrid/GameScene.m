@@ -289,11 +289,10 @@
     for (HexNode* h in _hexNodes) {
         if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {
             [h randomizeColor];
-            [_hudLayer showOptionCircleOnPosition:h.sprite.position forBuild:YES];
             
-            if ([h isKindOfClass:[TileEnergy class]]) { 
-                ((TileEnergy*)h).energy = [[energyTypes objectAtIndex:(arc4random() % [energyTypes count])] energyType];
-                CCLOG(@"Just added %@ to this tile", [((TileEnergy*)h).energy class]);
+            if ([h isKindOfClass:[TileEnergy class]]) {
+                [_hudLayer showOptionCircleOnPosition:h.sprite.position forBuild:YES];
+                //((TileEnergy*)h).energy = [[energyTypes objectAtIndex:(arc4random() % [energyTypes count])] energyType];
             }
         }
     }
