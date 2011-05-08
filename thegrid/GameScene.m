@@ -154,6 +154,22 @@
 
 - (void)updateMayorState {
     CCLOG(@"Update mayor state for %d", _chaos);
+    NSString *mood;
+    if (_chaos < 0) {
+        mood = @"Happy";
+    } else if (_chaos < 2) {
+        mood = @"Content";
+    } else if (_chaos < 4) {
+        mood = @"So-so";
+    } else if (_chaos < 6) {
+        mood = @"Worried";
+    } else if (_chaos < 8) {
+        mood = @"Panic";
+    } else {
+        mood = @"Fired";
+    }
+    
+    [_hudLayer.mayor setString:mood];
 }
 
 - (void)updateChaosState {

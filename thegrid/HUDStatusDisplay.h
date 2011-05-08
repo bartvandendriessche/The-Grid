@@ -14,4 +14,6 @@
 
 @property (nonatomic, assign) CCLabelBMFont *label;
 
+- (void)setString:(NSString*)string;
+
 @end

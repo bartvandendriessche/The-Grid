@@ -24,4 +24,8 @@
     return self;
 }
 
+- (void)setString:(NSString*)string {
+    [_label setString:string];
+}
+
 @end
