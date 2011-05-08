@@ -84,10 +84,12 @@
 
 - (void)preloadSounds {
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"win.m4a"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"lose.m4a"];
 }
 
 - (void)unloadSounds {
     [[SimpleAudioEngine sharedEngine] unloadEffect:@"win.m4a"];
+    [[SimpleAudioEngine sharedEngine] unloadEffect:@"lose.m4a"];
 }
 
 - (id)init {
@@ -138,10 +140,12 @@
 
 - (void)pause {
     [self pauseSchedulerAndActions];
+    [_dayNightCycleLayer pauseSchedulerAndActions];
 }
 
 - (void)resume {
     [self resumeSchedulerAndActions];
+    [_dayNightCycleLayer resumeSchedulerAndActions];
 }
 
 - (void)updateMayorState {
@@ -302,12 +306,14 @@
 - (void)endGameIfNecessary {
     if (!_environment.dayTime && _environment.day >= 10) {
         CCLOG(@"Congratulations! you made it to day 10");
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] playEffect:@"win.m4a"];
         [self pause];
     }
     
     if(_chaos > 15) {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"loss.m4a"];
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"lose.m4a"];
         [self pause];
     }
 }
