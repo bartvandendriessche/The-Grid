@@ -46,10 +46,10 @@
 
 - (NSMutableArray*)createSpareEnergyTiles {
     NSMutableArray *a = [[NSMutableArray alloc] init];
-    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, 2)]];
-    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, 2)]];
-    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, -3)]];
-    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, -3)]];
+    //[a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, 2)]];
+    //[a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, 2)]];
+    //[a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, -3)]];
+    //[a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, -3)]];
     
     [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(2, 2)]];
     [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, 2)]];
