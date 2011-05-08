@@ -44,4 +44,7 @@
 - (int)yieldedEnergy;
 - (void)updateMayorState;
 
+- (void)pause;
+- (void)resume;
+
 @end

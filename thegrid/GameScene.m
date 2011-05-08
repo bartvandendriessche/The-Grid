@@ -82,6 +82,14 @@
     [self addEnergyTile:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, -1)]];
 }
 
+- (void)preloadSounds {
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"win.m4a"];
+}
+
+- (void)unloadSounds {
+    [[SimpleAudioEngine sharedEngine] unloadEffect:@"win.m4a"];
+}
+
 - (id)init {
     if ((self = [super init])) {
         // load spriteSheets
@@ -127,6 +135,14 @@
 
 #pragma mark - 
 #pragma mark Gameloop
+
+- (void)pause {
+    [self pauseSchedulerAndActions];
+}
+
+- (void)resume {
+    [self resumeSchedulerAndActions];
+}
 
 - (void)updateMayorState {
     CCLOG(@"Update mayor state for %d", _chaos);
@@ -282,7 +298,16 @@
     [_dayNightCycleLayer runAction:[self dayCycle]];
 }
 
+- (void)endGameIfNecessary {
+    if (_environment.day >= 10) {
+        CCLOG(@"Congratulations! you made it to day 10");
+        [[SimpleAudioEngine sharedEngine] playEffect:@"win.m4a"];
+        [self pause];
+    }    
+}
+
 - (void)startNight {
+    [self endGameIfNecessary];
     [_dayNightCycleLayer runAction:[self nightCycle]];
 }
 
