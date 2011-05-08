@@ -179,6 +179,7 @@
     if (surplus == 0)return;
     
     if (surplus > 0) {
+        _hudLayer.energy.color = ccc3(0, 255, 0);
         _chaos--;
         if (_chaos < -5) {
             _chaos = -5;
@@ -186,6 +187,7 @@
     }
     
     if (surplus < 0) {
+        _hudLayer.energy.color = ccc3(255, 0, 0);
         _chaos++;
     }
     

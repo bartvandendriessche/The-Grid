@@ -21,9 +21,7 @@
 }
 
 - (void)deplete:(TileEnergy*)energy {
-    if (energy.scoreNuclear <= 0) {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"powerdown.m4a"];
-    }
+    if (energy.scoreNuclear <= 0) return;
     energy.scoreNuclear-=1;
     if (energy.scoreNuclear <= 0) {
         [[SimpleAudioEngine sharedEngine] playEffect:@"powerdown.m4a"];
