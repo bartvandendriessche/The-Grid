@@ -107,8 +107,10 @@
         [self addChild:_hudLayer z:2];
         _spareEnergyTiles = [[self createSpareEnergyTiles] retain];
         
+        _chaos = 0;
+        
         [self scheduleUpdate];
-        [self schedule:@selector(hourTick:) interval:2];
+        [self schedule:@selector(hourTick:) interval:0.5];
     }
     return self;
 }
@@ -125,6 +127,29 @@
 
 #pragma mark - 
 #pragma mark Gameloop
+
+- (void)updateMayorState {
+    CCLOG(@"Update mayor state for %d", _chaos);
+}
+
+- (void)updateChaosState {
+    int surplus = [self energySurplus];
+
+    if (surplus == 0)return;
+    
+    if (surplus > 0) {
+        _chaos--;
+        if (_chaos < -5) {
+            _chaos = -5;
+        }
+    }
+    
+    if (surplus < 0) {
+        _chaos++;
+    }
+    
+    [self updateMayorState];
+}
 
 - (void)incrementTime {
     int nextHour = _environment.hour + 1;
@@ -146,10 +171,12 @@
     
     if ([_environment dayTime]) { // population grows during the day
         for (TileCity *c in _cityTiles) {
+            c.population += (c.population * (arc4random() % 10) / 100);
             c.population += arc4random() % 2;
         }
     }
     
+    [self updateChaosState];
     CCLOG(@"It is now %d o'clock. You require %d energy, and you're generating %d", _environment.hour, [self requiredEnergy], [self yieldedEnergy]);
 }
 
@@ -174,7 +201,7 @@
     return yielded;
 }
 
-- (int)energySurplusOrDeficit {
+- (int)energySurplus {
     return [self requiredEnergy] - [self yieldedEnergy];
 }
 
@@ -306,9 +333,8 @@
                      //[CCDelayTime actionWithDuration:DURATION_NIGHT],
                      //[CCCallFunc actionWithTarget:self selector:@selector(startDayNightCycle)],
                      nil]];
-    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"The Grid  Night fall.wav"];
-    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"The Grid main theme day.wav"];
-
+    
+    _chaos = 0;
 }
 
 - (void)onExit {
