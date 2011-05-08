@@ -174,7 +174,8 @@
 
 - (void)updateChaosState {
     int surplus = [self energySurplus];
-
+    [_hudLayer.energy setString:
+     [[NSNumber numberWithInt:surplus] stringValue]];
     if (surplus == 0)return;
     
     if (surplus > 0) {
@@ -221,6 +222,8 @@
         for (TileCity *c in _cityTiles) {            
             c.population += arc4random() % (2 + (_environment.day / 2));
         }
+        [_hudLayer.people setString:
+         [[NSNumber numberWithInt:[self population]] stringValue]];
     }
     
     [self updateChaosState];
@@ -229,7 +232,7 @@
 }
 
 - (void)update:(ccTime)dt {
-    //CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
+
 }
 
 - (int)requiredEnergy {
