@@ -29,10 +29,10 @@
 
 - (id)initWithRandomPropertiesAt:(HexPoint)point {
     if ((self = [super initWithRadius:74.0f position:point spriteName:[NSString stringWithFormat:@"energy_tile_background_%i.png", arc4random() % 3]])) {
-        self.scoreCoal = (arc4random() % 10) * 24 * 2;
-        self.scoreOil = (arc4random() % 10) * 24 * 4;
-        self.scoreGas = (arc4random() % 10) * 24 * 3;
-        self.scoreNuclear = (arc4random() % 10) * 24 * 2;
+        self.scoreCoal = (arc4random() % 10) * 2 * 20;
+        self.scoreOil = (arc4random() % 10) * 4 * 20;
+        self.scoreGas = (arc4random() % 10) * 3 * 20;
+        self.scoreNuclear = (arc4random() % 10) * 2 * 20;
         
         self.scoreWind = arc4random() % 11;
         self.scoreSun = arc4random() % 11;

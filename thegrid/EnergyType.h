@@ -8,6 +8,7 @@
 
 #import "TileEnergy.h"
 #import "Environment.h"
+#import "SimpleAudioEngine.h"
 
 @interface EnergyType : NSObject {
     int _price;
