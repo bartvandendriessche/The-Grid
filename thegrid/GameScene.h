@@ -26,6 +26,8 @@
     NSMutableArray* _energyTiles;
     
     NSMutableArray* _spareEnergyTiles;
+    
+    int _chaos;
 }
 
 + (id)scene;
@@ -36,5 +38,13 @@
 - (void)addEnergyTile:(TileEnergy*)energy;
 - (void)startDay;
 - (void)startNight;
+
+- (int)energySurplus;
+- (int)requiredEnergy;
+- (int)yieldedEnergy;
+- (void)updateMayorState;
+
+- (void)pause;
+- (void)resume;
 
 @end

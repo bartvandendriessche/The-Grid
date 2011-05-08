@@ -15,7 +15,7 @@
 
 - (id)initWithRadius:(float)radius position:(HexPoint)position spriteName:(NSString *)spriteName {
     if ((self = [super initWithRadius:radius position:position spriteName:spriteName])) {
-        _population = 10;
+        _population = 0;
     }
     return self;
 }

@@ -39,6 +39,7 @@
 + (id)tileWithRandomPropertiesAt:(HexPoint)point;
 - (id)initWithRandomPropertiesAt:(HexPoint)point;
 
+- (void)deplete;
 - (int)yield:(Environment*)environment;
 
 @end

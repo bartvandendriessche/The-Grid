@@ -8,6 +8,7 @@
 
 #import "HUDLayer.h"
 #import "TileEnergy.h"
+#import "SimpleAudioEngine.h"
 
 @implementation HUDLayer
 
@@ -145,6 +146,7 @@
     for (HUDIcon *icon in _buildIcons) {
         if ([icon isTouchForMe:relative]) {
             _activeTile.energy = [icon energyType];
+            [[SimpleAudioEngine sharedEngine] playEffect:@"construction.m4a"];
             [self hideOptionCircle];
             return YES;
         }
@@ -165,11 +167,13 @@
 - (void)onEnter {
     [super onEnter];
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"construction.m4a"];
 }
 
 - (void)onExit {
     [super onExit];
     [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [[SimpleAudioEngine sharedEngine] unloadEffect:@"construction.m4a"];
 }
 
 #pragma mark -

@@ -24,6 +24,10 @@
 }
 
 - (int)yield:(TileEnergy *)energy environment:(Environment*)environment {
+    if (!energy.scoreOil <= 0) {
+        CCLOG(@"No longer yielding energy from oil at %d,%d", energy.pos.x, energy.pos.y);
+        return 0;
+    }
     return _baseYield;
 }
 

@@ -13,11 +13,13 @@
     int _windForce;
     int _cloudiness;
     int _hour;
+    int _day;
 }
 
 @property (nonatomic,assign) int windForce;
 @property (nonatomic,assign) int cloudiness;
 @property (nonatomic,assign) int hour;
+@property (nonatomic,assign) int day;
 
 + (id)environment;
 
