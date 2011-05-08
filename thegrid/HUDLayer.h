@@ -13,6 +13,10 @@
     NSMutableArray *_buildIcons;
     HUDIcon *_demolishIcon;
     CCSprite *_optionCircle;
+    CCSprite *_money;
+    CCSprite *_mayor;
+    CCSprite *_energy;
+    CCSprite *_people;
 }
 
 + (id)layer;

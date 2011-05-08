@@ -13,6 +13,10 @@
 		ABCEA8251375B95600821EFB /* icon-assets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8231375B95600821EFB /* icon-assets.plist */; };
 		ABCEA8261375B95600821EFB /* icon-assets.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */; };
 		ABCEA8291375C01800821EFB /* OptionWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8281375C01800821EFB /* OptionWheel.png */; };
+		ABCEA83B1376866100821EFB /* hud_energy.png in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8371376866100821EFB /* hud_energy.png */; };
+		ABCEA83C1376866100821EFB /* hud_mayor.png in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8381376866100821EFB /* hud_mayor.png */; };
+		ABCEA83D1376866100821EFB /* hud_money.png in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8391376866100821EFB /* hud_money.png */; };
+		ABCEA83E1376866100821EFB /* hud_people.png in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA83A1376866100821EFB /* hud_people.png */; };
 		ABD5372813758E030032A691 /* tile-assets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372613758E030032A691 /* tile-assets.plist */; };
 		ABD5372913758E030032A691 /* tile-assets.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372713758E030032A691 /* tile-assets.pvr.ccz */; };
 		ABD5372C137598B70032A691 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD5372B137598B70032A691 /* Background.png */; };
@@ -158,6 +162,10 @@
 		ABCEA8231375B95600821EFB /* icon-assets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "icon-assets.plist"; path = "Resources/SpriteSheets/icon-assets.plist"; sourceTree = "<group>"; };
 		ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "icon-assets.pvr.ccz"; path = "Resources/SpriteSheets/icon-assets.pvr.ccz"; sourceTree = "<group>"; };
 		ABCEA8281375C01800821EFB /* OptionWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OptionWheel.png; path = Art/OptionWheel.png; sourceTree = "<group>"; };
+		ABCEA8371376866100821EFB /* hud_energy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hud_energy.png; path = Art/hud_energy.png; sourceTree = "<group>"; };
+		ABCEA8381376866100821EFB /* hud_mayor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hud_mayor.png; path = Art/hud_mayor.png; sourceTree = "<group>"; };
+		ABCEA8391376866100821EFB /* hud_money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hud_money.png; path = Art/hud_money.png; sourceTree = "<group>"; };
+		ABCEA83A1376866100821EFB /* hud_people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hud_people.png; path = Art/hud_people.png; sourceTree = "<group>"; };
 		ABD5372613758E030032A691 /* tile-assets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tile-assets.plist"; path = "Resources/SpriteSheets/tile-assets.plist"; sourceTree = "<group>"; };
 		ABD5372713758E030032A691 /* tile-assets.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "tile-assets.pvr.ccz"; path = "Resources/SpriteSheets/tile-assets.pvr.ccz"; sourceTree = "<group>"; };
 		ABD5372B137598B70032A691 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Art/Background.png; sourceTree = "<group>"; };
@@ -479,6 +487,10 @@
 		ABD5372A1375988D0032A691 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				ABCEA8371376866100821EFB /* hud_energy.png */,
+				ABCEA8381376866100821EFB /* hud_mayor.png */,
+				ABCEA8391376866100821EFB /* hud_money.png */,
+				ABCEA83A1376866100821EFB /* hud_people.png */,
 				ABCEA8281375C01800821EFB /* OptionWheel.png */,
 				ABD5372B137598B70032A691 /* Background.png */,
 			);
@@ -1014,6 +1026,10 @@
 				ABCEA8251375B95600821EFB /* icon-assets.plist in Resources */,
 				ABCEA8261375B95600821EFB /* icon-assets.pvr.ccz in Resources */,
 				ABCEA8291375C01800821EFB /* OptionWheel.png in Resources */,
+				ABCEA83B1376866100821EFB /* hud_energy.png in Resources */,
+				ABCEA83C1376866100821EFB /* hud_mayor.png in Resources */,
+				ABCEA83D1376866100821EFB /* hud_money.png in Resources */,
+				ABCEA83E1376866100821EFB /* hud_people.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

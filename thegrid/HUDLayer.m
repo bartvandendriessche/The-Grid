@@ -36,10 +36,28 @@
         
         // load option circle
         _optionCircle = [CCSprite spriteWithFile:@"OptionWheel.png"];
-        _optionCircle.position = ccp(880, 384);
         _optionCircle.scale = 0.5f;
         _optionCircle.visible = FALSE;
         [self addChild:_optionCircle];
+        
+        // load stats
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        
+        _money = [CCSprite spriteWithFile:@"hud_money.png"];
+        _money.position = ccp(winSize.width - _money.contentSize.width / 2 - 20, winSize.height - _money.contentSize.height / 2 - 20);
+        [self addChild:_money];
+        
+        _mayor = [CCSprite spriteWithFile:@"hud_mayor.png"];
+        _mayor.position = ccp(_money.position.x, _money.position.y - _money.contentSize.height / 2 - _mayor.contentSize.height / 2  - 10);
+        [self addChild:_mayor];
+        
+        _energy = [CCSprite spriteWithFile:@"hud_energy.png"];
+        _energy.position = ccp(_mayor.position.x, _mayor.position.y - _mayor.contentSize.height / 2 - _energy.contentSize.height / 2  - 10);
+        [self addChild:_energy];
+        
+        _people = [CCSprite spriteWithFile:@"hud_people.png"];
+        _people.position = ccp(_energy.position.x, _energy.position.y - _energy.contentSize.height / 2 - _people.contentSize.height / 2  - 10);
+        [self addChild:_people];
         
         // add icons to the option circle
         for (int i = 0; i < [_buildIcons count]; i++) {
