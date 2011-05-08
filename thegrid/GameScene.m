@@ -46,10 +46,10 @@
 
 - (NSMutableArray*)createSpareEnergyTiles {
     NSMutableArray *a = [[NSMutableArray alloc] init];
-    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, 2)]];
-    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, 2)]];
-    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, -3)]];
-    [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, -3)]];
+    //[a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, 2)]];
+    //[a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, 2)]];
+    //[a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-1, -3)]];
+    //[a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(1, -3)]];
     
     [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(2, 2)]];
     [a addObject:[TileEnergy tileWithRandomPropertiesAt:HexPointMake(-2, 2)]];
@@ -91,7 +91,7 @@
         _gameLayer = [GameLayer layer];
         
         // load background
-        CCSprite *background = [CCSprite spriteWithFile:@"background.png"];
+        CCSprite *background = [CCSprite spriteWithFile:@"Background.png"];
         background.position = ccp(512, 384);
         [_gameLayer addChild:background];
         
@@ -106,7 +106,7 @@
         [self addChild:_dayNightCycleLayer z:1];
         
         _hudLayer = [HUDLayer layer];
-        [self addChild:_hudLayer];
+        [self addChild:_hudLayer z:2];
         _spareEnergyTiles = [[self createSpareEnergyTiles] retain];
     }
     return self;
@@ -115,17 +115,17 @@
 #pragma mark -
 #pragma mark Sound
 - (void)playNightTheme {
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid  Night fall.wav" loop:YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"nightfall.m4a" loop:YES];
 }
 
 - (void)playDayTheme {
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"The Grid main theme day.wav" loop:YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"daytime.m4a" loop:YES];
 }
 
 #pragma mark - 
 #pragma mark Gameloop
 - (void)update:(ccTime)dt {
-    CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
+    //CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
 }
 
 - (int)requiredEnergy {
@@ -263,6 +263,9 @@
                      [CCDelayTime actionWithDuration:DURATION_NIGHT],
                      [CCCallFunc actionWithTarget:self selector:@selector(startDayNightCycle)],
                      nil]];
+    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"The Grid  Night fall.wav"];
+    //[[SimpleAudioEngine sharedEngine] preloadEffect:@"The Grid main theme day.wav"];
+
 }
 
 - (void)onExit {
@@ -273,24 +276,12 @@
 #pragma mark -
 #pragma mark CCTargetedTouchDelegate
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    NSArray *energyTypes = [NSArray arrayWithObjects:
-                            [Coal class],
-                            [Oil class],
-                            [Gas class],
-                            [Nuclear class],
-                            [Wind class],
-                            [Water class],
-                            [Sun class],
-                            [Geo class],
-                            nil];
     for (HexNode* h in _hexNodes) {
         if ([h isTouchForMe:[self convertTouchToNodeSpace:touch]]) {
             [h randomizeColor];
-            [_hudLayer showOptionCircleOnPosition:h.position forBuild:YES];
             
-            if ([h isKindOfClass:[TileEnergy class]]) { 
-                ((TileEnergy*)h).energy = [[energyTypes objectAtIndex:(arc4random() % [energyTypes count])] energyType];
-                CCLOG(@"Just added %@ to this tile", [((TileEnergy*)h).energy class]);
+            if ([h isKindOfClass:[TileEnergy class]]) {
+                [_hudLayer showOptionCircleForEnergyTile:(TileEnergy*)h];
             }
         }
     }

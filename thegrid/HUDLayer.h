@@ -9,9 +9,12 @@
 #import "cocos2d.h"
 #import "HUDIcon.h"
 
+@class TileEnergy;
+
 @interface HUDLayer : CCLayer {
     NSMutableArray *_buildIcons;
     HUDIcon *_demolishIcon;
+    TileEnergy *_activeTile;
     CCSprite *_optionCircle;
     CCSprite *_money;
     CCSprite *_mayor;
@@ -19,10 +22,13 @@
     CCSprite *_people;
 }
 
+@property (nonatomic,retain) TileEnergy* activeTile;
+
 + (id)layer;
 
 - (id)init;
 - (void)showOptionCircleOnPosition:(CGPoint)position forBuild:(BOOL)build;
+- (void)showOptionCircleForEnergyTile:(TileEnergy*)tile;
 - (void)hideOptionCircle;
 
 @end
