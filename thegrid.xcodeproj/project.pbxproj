@@ -10,6 +10,7 @@
 		AB0A2AFC13756FED0072B21C /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2AFB13756FED0072B21C /* HUDLayer.m */; };
 		AB0A2B091375747A0072B21C /* HUDIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A2B081375747A0072B21C /* HUDIcon.m */; };
 		AB7BC7DE137584C3008685EE /* PackTextures.sh in Resources */ = {isa = PBXBuildFile; fileRef = AB7BC7DD137584C3008685EE /* PackTextures.sh */; };
+		AB7BDFCE13768E2B00E71118 /* HUDStatusDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7BDFCD13768E2B00E71118 /* HUDStatusDisplay.m */; };
 		ABCEA8251375B95600821EFB /* icon-assets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8231375B95600821EFB /* icon-assets.plist */; };
 		ABCEA8261375B95600821EFB /* icon-assets.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */; };
 		ABCEA8291375C01800821EFB /* OptionWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = ABCEA8281375C01800821EFB /* OptionWheel.png */; };
@@ -159,6 +160,8 @@
 		AB0A2B071375747A0072B21C /* HUDIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDIcon.h; sourceTree = "<group>"; };
 		AB0A2B081375747A0072B21C /* HUDIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDIcon.m; sourceTree = "<group>"; };
 		AB7BC7DD137584C3008685EE /* PackTextures.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = thegrid/Scripts/PackTextures.sh; sourceTree = "<group>"; };
+		AB7BDFCC13768E2B00E71118 /* HUDStatusDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDStatusDisplay.h; sourceTree = "<group>"; };
+		AB7BDFCD13768E2B00E71118 /* HUDStatusDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDStatusDisplay.m; sourceTree = "<group>"; };
 		ABCEA8231375B95600821EFB /* icon-assets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "icon-assets.plist"; path = "Resources/SpriteSheets/icon-assets.plist"; sourceTree = "<group>"; };
 		ABCEA8241375B95600821EFB /* icon-assets.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "icon-assets.pvr.ccz"; path = "Resources/SpriteSheets/icon-assets.pvr.ccz"; sourceTree = "<group>"; };
 		ABCEA8281375C01800821EFB /* OptionWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OptionWheel.png; path = Art/OptionWheel.png; sourceTree = "<group>"; };
@@ -461,6 +464,8 @@
 			children = (
 				AB0A2B071375747A0072B21C /* HUDIcon.h */,
 				AB0A2B081375747A0072B21C /* HUDIcon.m */,
+				AB7BDFCC13768E2B00E71118 /* HUDStatusDisplay.h */,
+				AB7BDFCD13768E2B00E71118 /* HUDStatusDisplay.m */,
 			);
 			name = HUD;
 			sourceTree = "<group>";
@@ -1154,6 +1159,7 @@
 				CCFF00AE1375975800EBBC2C /* Sun.m in Sources */,
 				CCFF00B11375976100EBBC2C /* Geo.m in Sources */,
 				CCFF00C013759FDD00EBBC2C /* Environment.m in Sources */,
+				AB7BDFCE13768E2B00E71118 /* HUDStatusDisplay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

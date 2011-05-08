@@ -8,6 +8,7 @@
 
 #import "cocos2d.h"
 #import "HUDIcon.h"
+#import "HUDStatusDisplay.h"
 
 @class TileEnergy;
 
@@ -15,11 +16,11 @@
     NSMutableArray *_buildIcons;
     HUDIcon *_demolishIcon;
     TileEnergy *_activeTile;
+    HUDStatusDisplay *_money;
+    HUDStatusDisplay *_mayor;
+    HUDStatusDisplay *_energy;
+    HUDStatusDisplay *_people;
     CCSprite *_optionCircle;
-    CCSprite *_money;
-    CCSprite *_mayor;
-    CCSprite *_energy;
-    CCSprite *_people;
 }
 
 @property (nonatomic,retain) TileEnergy* activeTile;
