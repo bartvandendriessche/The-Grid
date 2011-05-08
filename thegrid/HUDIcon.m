@@ -7,6 +7,7 @@
 //
 
 #import "HUDIcon.h"
+#import "EnergyTypes.h"
 
 @implementation HUDIcon
 
@@ -26,6 +27,29 @@
 
 - (BOOL)isTouchForMe:(CGPoint)touchLocation {
 	return CGRectContainsPoint([self boundingBox], touchLocation);
+}
+
+- (EnergyType*)energyType {
+    switch (_type) {
+        case kIconTypeBuildCoal:
+            return [Coal energyType];
+        case kIconTypeBuildOil:
+            return [Oil energyType];
+        case kIconTypeBuildGas:
+            return [Gas energyType];
+        case kIconTypeBuildNuclear:
+            return [Nuclear energyType];
+        case kIconTypeBuildWind:
+            return [Wind energyType];
+        case kIconTypeBuildWater:
+            return [Water energyType];
+        case kIconTypeBuildSun:
+            return [Sun energyType];
+        case kIconTypeBuildGeo:
+            return [Geo energyType];
+        default:
+            return nil;
+    }
 }
 
 - (NSString*)energyTypeDescription {

@@ -125,7 +125,7 @@
 #pragma mark - 
 #pragma mark Gameloop
 - (void)update:(ccTime)dt {
-    //CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
+    CCLOG(@"Hey Bitzes, you require %d energy, and you're generating %d", [self requiredEnergy], [self yieldedEnergy]);
 }
 
 - (int)requiredEnergy {

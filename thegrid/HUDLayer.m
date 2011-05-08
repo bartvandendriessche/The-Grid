@@ -138,7 +138,8 @@
     CGPoint relative = ccpSub(point, circleOrigin);
     for (HUDIcon *icon in _buildIcons) {
         if ([icon isTouchForMe:relative]) {
-            CCLOG(@"Trying to build a %@ at %d,%d", [icon energyTypeDescription] ,_activeTile.pos.x,_activeTile.pos.y);
+            _activeTile.energy = [icon energyType];
+            [self hideOptionCircle];
             return YES;
         }
     }

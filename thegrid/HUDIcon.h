@@ -8,6 +8,8 @@
 
 #import "CCSprite.h"
 
+@class EnergyType;
+
 typedef enum {
     kIconTypeBuildCoal,
     kIconTypeBuildOil,
@@ -34,6 +36,7 @@ typedef enum {
 
 - (id)initWithSpriteFrameName:(NSString*)name andType:(HUDIconType)iconType;
 - (BOOL)isTouchForMe:(CGPoint)touchLocation;
+- (EnergyType*)energyType;
 - (NSString*)energyTypeDescription;
 
 @end
